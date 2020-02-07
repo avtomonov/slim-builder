@@ -1,0 +1,57 @@
+// inputs
+input:not([type]),
+[type="email"],
+[type="number"],
+[type="password"],
+[type="tel"],
+[type="url"],
+[type="textarea"],
+[type="search"],
+[type="legend"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="fieldset"],
+[type="time"],
+[type="text"],
+textarea {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  padding: 5px 15px;
+  border: 1px solid $color-border-primary;
+  &::placeholder {
+    color: $color-border-primary;
+    transition: opacity 200ms;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 0px rgba($color-link-primary, 0.1);
+  }
+  &:focus::placeholder {
+    opacity: 0.5;
+  }
+}
+input[disabled] {
+  opacity: 0.8;
+}
+@mixin inpt {
+  padding: 5px 15px;
+  border: 1px solid $color-border-primary;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 0px rgba($color-link-primary, 0.1);
+  }
+  .form-row.is-error &,
+  &.is-error {
+    border-color: $color-error;
+  }
+}
+
+.inpt {
+  @include inpt;
+}
+[disabled] {
+  cursor: no-drop;
+}

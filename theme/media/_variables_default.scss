@@ -1,0 +1,35 @@
+// настройки поумолчанию
+
+// Шрифты
+$font-family-primary: system-ui;
+$font-family-second: system-ui;
+$font-size-primary: 16px;
+
+// Основные цвета
+$color-background-primary: #fff;
+$color-text-primary: settings(color_text_primary);
+$color-text-gray: #555555;
+$color-link-primary: #144184;
+$color-link-primary-hover: lighten($color-link-primary, 5%);
+$color-border-primary: #cccccc;
+
+// Цвета уведомлений
+$color-info: #E2E5EA;
+$color-success: $color-link-primary;
+$color-error: #f65050;
+$color-warning: #F2930C;
+
+// Дополнительные цвета
+$color-background-secondary: #cccccc;
+$color-text-secondary: #000000;
+$color-text-gray-second: #444444;
+$color-link-secondary: #0B705A;
+$color-link-secondary-hover: lighten($color-link-secondary, 5%);
+$color-border-secondary: #999999;
+$color-border-light: #e5e5e5;
+
+// Размеры
+$body-min-width: 1200px;
+$container-width: 1200px;
+$gutter-width-primary: 0px;
+$gutter-width-secondary: 10px;

@@ -1,0 +1,29 @@
+.slide-inner {
+  display: block;
+  position: relative;
+}
+
+.slide-inner img {
+  width: 100%;
+}
+
+.slide-absolute {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+}
+
+.slide-content {
+  padding-top: 100px;
+}
+
+.slide-title {
+  font-size: 3rem;
+  color: #fff;
+}
+.slide-description {
+  font-size: 2rem;
+  color: #fff;
+}

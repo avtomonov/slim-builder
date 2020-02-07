@@ -1,0 +1,40 @@
+{% if hide_sort %}
+  {% assign sort_attr = 'hidden' %}
+{% endif %}
+
+{% if hide_page_size %}
+  {% assign page_size_attr = 'hidden' %}
+{% endif %}
+
+<form class="collection-order-wrapper row flex-middle" action="{{ collection.url }}{% if filter %}/{{ filter.handle }}{% endif %}" method="get">
+
+
+  <div class="collection-order is-order cell-6" {{ sort_attr }}>
+
+    <label class="label-field">{{ messages.label_sort }}</label>
+
+    <select class="slct js-filter-trigger" name="order">
+      {{ "" | select_option: order, "Дате добавления" }}
+      {{ "price"            | select_option: order, messages.sort_by_price }}
+      {{ "descending_price" | select_option: order, messages.sort_by_price_desc  }}
+    </select>
+
+  </div>
+
+  <div class="collection-order is-page-size cell-6" {{ page_size_attr }}>
+
+    <label class="label-field">{{ messages.label_limit }}</label>
+
+    {% include "page_sizes", page_steps: '12,24,48,96', input_type: 'radio' %}
+
+  </div>
+
+  {% include "filter_fields" %}
+
+</form>
+
+
+{% assign hide_sort = nil %}
+{% assign sort_class = nil %}
+{% assign hide_page_size = nil %}
+{% assign page_size_class = nil %}

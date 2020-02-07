@@ -1,0 +1,23 @@
+.cards-row > *,
+.products-slider .swiper-slide {
+  flex-grow: 0;
+  flex-shrink: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-self: stretch;
+}
+.cards-col {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cards-col > * {
+  width: 100%;
+}
+@supports (display: flex) {
+  .card.cards-col {
+    height: 100%; 
+  } 
+}

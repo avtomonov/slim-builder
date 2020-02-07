@@ -1,0 +1,10 @@
+.page_size_drop-item [type="radio"]:checked + .page_size_drop-control {
+  color: $color-link-primary;
+}
+.page_size_drop-item {
+  display: block;
+}
+.page_size_drop-target {
+  background-color: #ffffff;
+  width: 100%;
+}

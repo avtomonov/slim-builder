@@ -1,0 +1,23 @@
+.swiper-container .swiper-slide {
+  height: auto;
+}
+.swiper-slide {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.swiper-container .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 100%;
+  background: #000;
+  opacity: .2
+}
+.swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: $color-link-primary;
+  opacity: 1;
+}
+[class^="swiper-button"] {
+  user-select: none;
+}

@@ -1,0 +1,86 @@
+html, body {
+  color: $color-text-primary;
+  font: $font-size-primary $font-family-primary;
+  height: 100%;
+  margin: 0;
+  font-size: 100%;
+  min-width: $body-min-width;
+}
+
+body {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+
+.container {
+  padding-left: $gutter-width-primary;
+  padding-right: $gutter-width-primary;
+  max-width: $container-width;
+}
+.container .container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.row {
+  margin-left: -$gutter-width-primary;
+  margin-right: -$gutter-width-primary;
+}
+
+.row-reverse {
+  margin-left: -$gutter-width-primary;
+  margin-right: -$gutter-width-primary;
+}
+
+.col {
+  margin-left: -$gutter-width-primary;
+  margin-right: -$gutter-width-primary;
+}
+
+.col-reverse {
+  margin-left: -$gutter-width-primary;
+  margin-right: -$gutter-width-primary;
+}
+
+[class*='cell-'] {
+  padding-left: $gutter-width-primary;
+  padding-right: $gutter-width-primary;
+}
+
+.row.is-stretch > * {
+  flex: 1 0 auto;
+}
+
+@if ($gutter-width-primary == 0px) {
+  @media (max-width: $container-width + $gutter-width-secondary * 2) {
+    .container {
+      padding-right: $gutter-width-secondary;
+      padding-left: $gutter-width-secondary;
+    }
+  }
+  .container.with-grid {
+    padding-left: $gutter-width-secondary;
+    padding-right: $gutter-width-secondary;
+  }
+  .row.is-grid,
+  .row-reverse.is-grid,
+  .col.is-grid,
+  .col-reverse.is-grid
+  {
+    margin-left: -$gutter-width-secondary;
+    margin-right: -$gutter-width-secondary;
+  }
+  .row.is-grid > *,
+  .row-reverse.is-grid > *,
+  .col.is-grid > *,
+  .col-reverse.is-grid > *
+  {
+    padding-left: $gutter-width-secondary;
+    padding-right: $gutter-width-secondary;
+  }
+}

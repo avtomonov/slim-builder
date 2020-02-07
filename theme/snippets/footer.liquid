@@ -1,0 +1,39 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="cell-4">
+        <div class="footer_menu-wrap">
+          <div class="footer_menu-title">
+            Каталог
+          </div>
+          {% include "menu", menu_class: 'footer_menu', source_type: 'collection', source_handle: 'all', show_icon: false, level_limit: 1 %}
+        </div>
+      </div>
+
+      <div class="cell-4">
+        <div class="footer_menu-wrap">
+          <div class="footer_menu-title">
+            Каталог
+          </div>
+          {% include "menu", menu_class: 'footer_menu', source_type: 'collection', source_handle: 'all', show_icon: false, level_limit: 1 %}
+        </div>
+      </div>
+
+      <div class="cell-4">
+        <div class="footer_menu-wrap">
+          <div class="footer_menu-title">
+            Каталог
+          </div>
+          {% include "menu", menu_class: 'footer_menu', source_type: 'collection', source_handle: 'all', show_icon: false, level_limit: 1 %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="text-center">
+    {% include "social", social_icon_font: true %}
+  </div>
+  <div class="text-center">
+     Работает на <a href="https://www.insales.ru/" target="_blank">InSales</a> © {{ 'now' | date: "%Y" }}
+  </div>
+</footer>

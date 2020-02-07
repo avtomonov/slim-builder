@@ -1,0 +1,29 @@
+{% if search.performed? %}
+
+  {% if search.results != empty %}
+
+  <div class="row is-grid cards-row">
+
+      {% for product in search.results %}
+      <div class="cell-3">
+        {% include "card", card_prefix: 'in-search'%}
+      </div>
+      {% endfor %}
+    </div>
+
+  {% else %}
+
+    <div class="notice notice-warning">
+      Ничего не найдено
+    </div>
+  {% endif %}
+
+{% else %}
+
+  <div class="cell-12">
+    <div class="notice notice-info">
+      Введите данные для поиска
+    </div>
+  </div>
+
+{% endif %}

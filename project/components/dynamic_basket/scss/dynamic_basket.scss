@@ -1,0 +1,24 @@
+.dynamic_basket {
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 0 2px 0px #000;
+}
+
+.dynamic_basket-header {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid $color-border-primary;
+}
+
+.dynamic_basket-empty {
+  padding: 1rem 0;
+}
+
+.dynamic_item {
+  border-bottom: 1px solid $color-border-primary;
+}
+
+.dynamic_basket-drop {
+  right: 0;
+  width: 300px;
+}

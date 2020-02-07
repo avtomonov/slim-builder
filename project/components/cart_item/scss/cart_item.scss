@@ -1,0 +1,17 @@
+.item-delete {
+  border: none;
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+  outline: none;
+  width: 26px;
+  padding: 2px;
+  img {
+    width: 100%;
+  }
+}
+
+.item-title-link {
+  text-decoration: none;
+  color: inherit;
+}

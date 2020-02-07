@@ -1,0 +1,24 @@
+{
+  "block_lists": {
+    "promo-slider": {
+      "title": "Промо баннеры",
+      "blocks": ["slide1", "slide2"],
+      "block_template": "system-promo-slide"
+    }
+  },
+  "blocks": {
+    "slide1": {
+      "title": "Слайд с ссылкой",
+      "block_template": "system-promo-slide",
+      "description": "Описание слайда",
+      "link": "#",
+      "image": "http://fakeimg.pl/1920x500/d5d5d5/"
+    },
+    "slide2": {
+      "title": "Слайд без ссылки",
+      "block_template": "system-promo-slide",
+      "description": "Описание слайда",
+      "image": "http://fakeimg.pl/1920x500/d5d5d5/"
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+	"block_templates": {
+		"benefit": {
+			"name": "Преимущество",
+			"block_fields": {
+				"image": {
+					"name": "Изображение",
+					"kind": "account_file"
+				},
+				"link": {
+					"name": "Ссылка",
+					"kind": "text"
+				}
+			}
+		},
+		"filter_color": {
+			"name": "Цвет в фильтре",
+			"block_fields": {
+				"image": {
+					"name": "Изображение",
+					"kind": "account_file"
+				},
+				"hex": {
+					"name": "Цвет в hex формате (#000000)",
+					"kind": "text"
+				}
+			}
+		}
+	},
+	"block_lists": {
+		"advantage": {
+			"title": "Преимущества",
+			"blocks": [
+				"advantage-1",
+				"advantage-2",
+				"advantage-3",
+				"advantage-4",
+				"advantage-5"
+			],
+			"block_template": "benefit"
+		},
+		"filter-colors": {
+			"title": "Цвет в фильтре",
+			"blocks": [
+				"color-red",
+				"color-blue",
+				"color-black",
+				"color-white"
+			],
+			"block_template": "filter_color"
+		},
+		"hits-block": {
+			"title": "Хиты продаж",
+			"blocks": [
+				"coll-frontpage",
+				"coll-popular"
+			],
+			"block_template": "system-collection"
+		},
+		"promo-slider": {
+			"title": "Промо баннеры",
+			"blocks": [
+				"slide1",
+				"slide2"
+			],
+			"block_template": "system-promo-slide"
+		},
+		"social": {
+			"title": "{{ messages.block_list_social }}",
+			"blocks": [
+				"vkontakte",
+				"facebook",
+				"instagram",
+				"youtube",
+				"twitter",
+				"google"
+			],
+			"block_template": "system-social"
+		}
+	},
+	"blocks": {
+		"advantage-1": {
+			"title": "Модели разработаны с большой любовью",
+			"block_template": "benefit",
+			"link": "#",
+			"image": "http://fakeimg.pl/300x300/d5d5d5/"
+		},
+		"advantage-2": {
+			"title": "Оригинальный крой и фасоны",
+			"block_template": "benefit",
+			"link": "#",
+			"image": "http://fakeimg.pl/300x300/d5d5d5/"
+		},
+		"advantage-3": {
+			"title": "Акции, подарки, сезонные скидки",
+			"block_template": "benefit",
+			"link": "#",
+			"image": "http://fakeimg.pl/300x300/d5d5d5/"
+		},
+		"advantage-4": {
+			"title": "Гарантированный возврат",
+			"block_template": "benefit",
+			"link": "#",
+			"image": "http://fakeimg.pl/300x300/d5d5d5/"
+		},
+		"advantage-5": {
+			"title": "Доставка по всей России",
+			"block_template": "benefit",
+			"link": "#",
+			"image": "http://fakeimg.pl/300x300/d5d5d5/"
+		},
+		"color-red": {
+			"title": "Красный",
+			"block_template": "filter_color",
+			"hex": "#ff0000",
+			"image": "no_image.png"
+		},
+		"color-blue": {
+			"title": "Cиний",
+			"block_template": "filter_color",
+			"hex": "#0000ff",
+			"image": "no_image.png"
+		},
+		"color-black": {
+			"title": "Черный",
+			"block_template": "filter_color",
+			"hex": "#000000",
+			"image": "no_image.png"
+		},
+		"color-white": {
+			"title": "Белый",
+			"block_template": "filter_color",
+			"hex": "#ffffff",
+			"image": "no_image.png"
+		},
+		"coll-frontpage": {
+			"title": "Товары на главной",
+			"block_template": "system-collection",
+			"link": "frontpage"
+		},
+		"coll-popular": {
+			"title": "Популярные товары",
+			"block_template": "system-collection",
+			"link": "popular"
+		},
+		"slide1": {
+			"title": "Слайд с ссылкой",
+			"block_template": "system-promo-slide",
+			"description": "Описание слайда",
+			"link": "#",
+			"image": "http://fakeimg.pl/1920x500/d5d5d5/"
+		},
+		"slide2": {
+			"title": "Слайд без ссылки",
+			"block_template": "system-promo-slide",
+			"description": "Описание слайда",
+			"image": "http://fakeimg.pl/1920x500/d5d5d5/"
+		},
+		"vkontakte": {
+			"title": "Vkontakte",
+			"block_template": "system-social",
+			"link": "http://vk.com/"
+		},
+		"facebook": {
+			"title": "Facebook",
+			"block_template": "system-social",
+			"link": "http://facebook.com/"
+		},
+		"instagram": {
+			"title": "Instagram",
+			"block_template": "system-social",
+			"link": "http://instagram.com/"
+		},
+		"youtube": {
+			"title": "YouTube",
+			"block_template": "system-social",
+			"link": "http://youtube.com/"
+		},
+		"twitter": {
+			"title": "Twitter",
+			"block_template": "system-social",
+			"link": "http://twitter.com/"
+		},
+		"google": {
+			"title": "Google+",
+			"block_template": "system-social",
+			"link": "https://plus.google.com/"
+		}
+	},
+	"properties": {
+		"stiker": {
+			"title": "Стикер",
+			"characteristics": {
+				"new": "Новинка",
+				"hit": "Хит"
+			}
+		}
+	},
+	"pages": {
+		"favorites": {
+			"title": "Избранное",
+			"content": "<div></div>"
+		}
+	}
+}

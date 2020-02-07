@@ -1,0 +1,17 @@
+body .alertify-notifier .ajs-message {
+  background: $color-info;
+  color: $color-text-primary;
+}
+
+body .alertify-notifier .ajs-message.ajs-success {
+	background: $color-success;
+	color: #fff;
+}
+body .alertify-notifier .ajs-message.ajs-error {
+	background: $color-error;
+	color: #fff;
+}
+body .alertify-notifier .ajs-message.ajs-warning {
+	background: $color-warning;
+	color: #fff;
+}

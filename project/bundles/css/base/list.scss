@@ -1,0 +1,53 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list > .list-item {
+  display: inline-block;
+  position: relative;
+}
+.list-table {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: table;
+  width: 100%;
+}
+.list-table > .list-item {
+  display: table-cell;
+}
+
+.list-justified {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-align: justify;
+  width: 100%;
+}
+.list-justified:after {
+  content: "";
+  display: inline-block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 100%;
+}
+
+.list-vertical {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-vertical > .list-item {
+  display: inline-block;
+  width: 100%;
+}
+
+.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

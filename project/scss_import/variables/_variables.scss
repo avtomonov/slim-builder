@@ -1,0 +1,37 @@
+// настройки
+
+//  переменные типа settings(color_text_primary) можно настроить тут - settings_data.json
+
+// Шрифты
+$font-family-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+$font-family-second: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+$font-size-primary: settings(font_size_primary);
+
+// Основные цвета
+$color-background-primary: #fff;
+$color-text-primary: settings(color_text_primary);
+$color-text-gray: #555555;
+$color-link-primary: #144184;
+$color-link-primary-hover: lighten($color-link-primary, 5%);
+$color-border-primary: #cccccc;
+
+// Дополнительные цвета
+$color-background-secondary: #cccccc;
+$color-text-secondary: #000000;
+$color-text-gray-second: #444444;
+$color-link-secondary: #f65050;
+$color-link-secondary-hover: lighten($color-link-secondary, 5%);
+$color-border-secondary: #999999;
+$color-border-light: #e5e5e5;
+
+// Цвета уведомлений
+$color-info: #E2E5EA;
+$color-success: $color-link-primary;
+$color-error: #f65050;
+$color-warning: #F2930C;
+
+// Размеры
+$body-min-width: 1200px; // минимальная ширина body/html (для адаптивной версии выставить 320px)
+$container-width: 1200px; // ширина .container
+$gutter-width-primary: 0px; // внутренние паддинги в ячейках сетки
+$gutter-width-secondary: 10px; // внутренние паддинги в ячейках сетки в .is-grid

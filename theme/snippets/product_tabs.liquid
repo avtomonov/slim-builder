@@ -1,0 +1,35 @@
+<div class="tabs product_tabs js-tabs" data-tabs-container>
+
+  <div class="tabs-head" data-tab-control="tabs">
+    {% if product.description %}
+    <div class="tabs-item" data-tab-anchor="description">
+      Описание
+    </div>
+    {% endif %}
+
+    {% if account.reviews_enabled? %}
+    <div class="tabs-item" data-tab-anchor="review_form">
+      Отзывы {% if product.reviews_count > 0 %}({{ product.reviews_count }}){% endif %}
+    </div>
+    {% else %}
+    <script type="text/javascript">
+      console.log('Внимание! Отзывы отключены в бек-офисе');
+    </script>
+    {% endif %}
+
+  </div>
+
+  <div class="tabs-box" data-tab-box="tabs">
+    {% if account.reviews_enabled? %}
+    <div class="tabs-target" data-tab-target="review_form">
+      {% include "product_reviews" %}
+    </div>
+    {% endif %}
+
+    <div class="tabs-target editor" data-tab-target="description" itemprop="description">
+      {{ product.description }}
+    </div>
+
+  </div>
+
+</div>

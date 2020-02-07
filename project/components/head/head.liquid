@@ -1,0 +1,49 @@
+{% include "seo_title" %}
+
+<!-- meta -->
+<meta charset="UTF-8" />
+<meta name="keywords" content='{% if filter %}{{ filter.meta_keywords }}{% else %}{{ keywords }}{% endif %}'/>
+
+<meta name="description" content='{% if filter %}{{ filter.meta_description }}{% else %}{{ description }}{% endif %}'/>
+
+<meta name="robots" content="index,follow" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+
+<link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
+
+{% if template == "blog" %}
+  <link rel="alternate" type="application/rss+xml" title="{{ blog.title }}" href="{{ account.url }}{{ blog.url }}.atom" />
+{% endif %}
+
+{% if template contains 'product.' or template == 'product' %}
+    <meta property="og:title" content="{{ product.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ account.url }}{{ product.url }}" />
+    {% if product.first_image.thumb_url contains 'http' %}
+      <meta property="og:image" content="{{ product.first_image.original_url }}" />
+    {% else %}
+      <meta property="og:image" content="{{ account.url }}{{ product.first_image.original_url }}" />
+    {% endif %}
+  {% elsif template contains 'index.' or template == 'index' %}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ account.url }}" />
+    <meta property="og:title" content="{{ account.title }}" />
+    {% assign path_logotype = "logotype.png" | asset_url_if_exists %}
+    {% if path_logotype %}
+      <meta property="og:image" content="{{ path_logotype }}" />
+    {% endif %}
+  {% elsif template contains 'article.' or template == 'article' %}
+    <meta property="og:title" content="{{ article.title }}" />
+    <meta property="og:image" content="{{ article.image.original_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ article.url }}" />
+{% endif %}
+
+<!-- fixes -->
+<!--[if IE]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lt IE 9]>
+<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->

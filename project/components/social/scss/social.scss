@@ -1,0 +1,57 @@
+.social-menu-link {
+  color: inherit;
+  width: 35px;
+  height: 35px;
+  border: 1px solid;
+  display: none;
+  vertical-align: top;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 32px;
+
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: 50%;
+  transition: all 200ms;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+.social-menu-link.is-vk {
+  background-image: url('vk.svg');
+  display: inline-block;
+}
+.social-menu-link.is-facebook {
+  background-image: url('facebook.svg');
+  display: inline-block;
+}
+.social-menu-link.is-youtube {
+  background-image: url('youtube.svg');
+  display: inline-block;
+}
+.social-menu-link.is-instagram {
+  background-image: url('instagram.svg');
+  display: inline-block;
+}
+.social-menu-link.is-twitter {
+  background-image: url('twitter.svg');
+  display: inline-block;
+}
+.social-menu-link.is-t_me {
+  background-image: url('t_me.svg');
+  display: inline-block;
+}
+.social-menu-link.is-odnoklassniki {
+  background-image: url('ok-social.svg');
+  display: inline-block;
+}
+.social-menu-link.is-google-plus {
+  background-image: url('google-plus.svg');
+  display: inline-block;
+}
+
+.social-menu.is-icon-font .social-menu-link {
+  background-image: none;
+}

@@ -1,0 +1,21 @@
+{
+  "block_lists": {
+    "hits-block": {
+      "title": "Хиты продаж",
+      "blocks": ["coll-frontpage", "coll-popular"],
+      "block_template": "system-collection"
+    }
+  },
+  "blocks": {
+    "coll-frontpage": {
+      "title": "Товары на главной",
+      "block_template": "system-collection",
+      "link": "frontpage"
+    },
+    "coll-popular": {
+      "title": "Популярные товары",
+      "block_template": "system-collection",
+      "link": "popular"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{% comment %}
+  Все итерации должны пройти, чтобы html теги закрылись по значению forloop.
+  Чтобы скрыть товар нужно передать hide_product = true
+  {% for product in product.related_products %}
+    {% assign hide_product = false %}
+
+    {% if product.is_bundle %}
+      {% assign hide_product = true %}
+    {% endif %}
+
+    {% include "products_slider", products_title: 'Сопутствующие товары', products_prefix: 'is-related', card_prefix: 'in-product', hide_product: hide_product  %}
+  {% endfor %}
+
+  За инициализацию слайдера отвечает js-products-slider
+{% endcomment %}
+
+{% unless products_prefix %}
+  {% assign products_prefix = 'is-default' %}
+{% endunless %}
+
+{% unless card_prefix %}
+  {% assign card_prefix = 'is-default' %}
+{% endunless %}
+
+{% if  forloop.first %}
+<div class="js-products-slider products products-{{ products_prefix }}">
+
+  <div class="container">
+
+    {% if products_title %}
+    <h3 class="products-title">
+      {{ products_title }}
+    </h3>
+    {% endif %}
+
+    <div class="products-slider-wrapper">
+      <div class="products-slider swiper-container products-slider-{{ products_prefix }}">
+        <div class="swiper-wrapper">
+{% endif %}
+
+
+<!-- тело цикла -->
+  {% unless hide_product %}
+    <div class="swiper-slide slide-{{ products_prefix }}">
+      {% include "card", card_prefix: card_prefix %}
+    </div>
+  {% endunless %}
+<!-- /тело цикла -->
+
+
+{% if forloop.last %}
+        </div><!-- swiper-wrapper -->
+      </div><!-- products-slider -->
+
+      <div class="products-control">
+        <div class="swiper-button-prev swiper-button-black products-control-prev">
+        </div>
+        <div class="swiper-button-next swiper-button-black products-control-next">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% assign products_array = nil %}
+{% assign products_prefix = nil %}
+{% assign card_prefix = nil %}
+{% assign products_title = nil %}
+{% assign hide_product = nil %}
+{% assign first = nil %}
+{% assign last = nil %}

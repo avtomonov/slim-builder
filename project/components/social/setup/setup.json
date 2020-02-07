@@ -1,0 +1,41 @@
+{
+  "block_lists": {
+    "social": {
+      "title": "{{ messages.block_list_social }}",
+      "blocks": ["vkontakte", "facebook", "instagram", "youtube", "twitter", "google"],
+      "block_template": "system-social"
+    }
+  },
+  "blocks": {
+    "vkontakte": {
+      "title": "Vkontakte",
+      "block_template": "system-social",
+      "link": "http://vk.com/"
+    },
+    "facebook": {
+      "title": "Facebook",
+      "block_template": "system-social",
+      "link": "http://facebook.com/"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "block_template": "system-social",
+      "link": "http://instagram.com/"
+    },
+    "youtube": {
+      "title": "YouTube",
+      "block_template": "system-social",
+      "link": "http://youtube.com/"
+    },
+    "twitter": {
+      "title": "Twitter",
+      "block_template": "system-social",
+      "link": "http://twitter.com/"
+    },
+    "google": {
+      "title": "Google+",
+      "block_template": "system-social",
+      "link": "https://plus.google.com/"
+    }
+  }
+}

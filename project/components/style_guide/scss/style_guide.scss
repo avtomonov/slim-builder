@@ -1,0 +1,28 @@
+.style_guide {
+  padding: 0 50px;
+}
+
+.style_guide > .row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid;
+}
+
+pre.html {
+  margin-top: 0;
+}
+
+.guide-fill {
+  background: #ccc;
+  min-height: 100px;
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 100px;
+}
+.style_target {
+  display: none;
+}
+
+.style_target .sticky {
+  top: 100px;
+}

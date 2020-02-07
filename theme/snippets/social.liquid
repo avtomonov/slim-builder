@@ -1,0 +1,75 @@
+{% assign social_class = 'is-icon-bg' %}
+{% assign icon_font = '' %}
+{% if social_icon_font %}
+  {% assign social_class = 'is-icon-font' %}
+{% endif %}
+
+{% comment %}
+  При следующем вызове используются иконки font awesome
+  {% include "social", social_icon_font: true %}
+
+
+  При следующем вызове используются иконки из background-image
+  {% include "social", social_icon_font: false %}
+{% endcomment %}
+{% if block_lists.with_template['system-social'].social.blocks.size > 0 %}
+<ul class="social-menu list {{ social_class }}">
+  {% for group in block_lists.with_template['system-social'].social.blocks %}
+
+    {% assign icon_name = false %}
+
+    {% if group.link contains 'vk.' %}
+      {% assign icon_name = 'vk' %}
+    {% endif %}
+
+    {% if group.link contains 'ok.' %}
+      {% assign icon_name = 'odnoklassniki' %}
+    {% endif %}
+
+    {% if group.link contains 'facebook.' %}
+      {% assign icon_name = 'facebook' %}
+    {% endif %}
+
+    {% if group.link contains 'twitter.' %}
+      {% assign icon_name = 'twitter' %}
+    {% endif %}
+
+    {% if group.link contains 'youtube.' %}
+      {% assign icon_name = 'youtube' %}
+    {% endif %}
+
+    {% if group.link contains 'instagram.' %}
+      {% assign icon_name = 'instagram' %}
+    {% endif %}
+
+    {% if group.link contains 'google.' %}
+      {% assign icon_name = 'google-plus' %}
+    {% endif %}
+
+    {% unless icon_name %}
+      {% assign icon_name = group.link | replace: 'www.', '' | replace: 'http://', '' | replace: 'https://', '' | split: '/' | first | replace: '.', '_' | replace: ' ', '_' %}
+    {% endunless %}
+
+    {% if icon_name == 't_me' %}
+      {% if social_icon_font %}
+        {% assign icon_name = 'paper-plane-o' %}
+      {% endif %}
+    {% endif %}
+
+    {% if icon_name %}
+      <li class="social-menu-item list-item">
+        <a target="blank" title='{{ group.title }}' href="{{ group.link }}" class="social-menu-link is-{{ icon_name }}">
+          {% if social_icon_font %}
+            <i class="fa fa-{{ icon_name }}" aria-hidden="true"></i>
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
+
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% assign social_class = nil %}
+{% assign icon_font = nil %}
+{% assign social_icon_font = nil %}

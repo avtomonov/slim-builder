@@ -1,0 +1,42 @@
+{% if block_lists.promo-slider.blocks.size > 0 %}
+  <div class="promo-slider-wrapper">
+    <div class="promo-slider swiper-container">
+      <div class="swiper-wrapper">
+
+        {% for slide in block_lists.promo-slider.blocks %}
+          <div class="promo-slide swiper-slide">
+            {% assign tag = 'div' %}
+            {% assign attr = '' %}
+            {% if slide.link.size > 0 %}
+              {% assign tag = 'a' %}
+              {% assign attr = 'href="' | append: slide.link | append: '"' %}
+            {% endif %}
+
+            <{{tag}} {{ attr }} class="slide-inner">
+
+              <img class="slide-image" src="http://fakeimg.pl/1920x700/d5d5d5/" />
+              <!-- <img class="slide-image" src="{{ slide.image }}" /> -->
+
+              <div class="slide-absolute">
+                <div class="container slide-content">
+                  <div class="slide-title">
+                    {{ slide.title }}
+                  </div>
+                  {% if slide.description and slide.description != '' %}
+                    <div class="slide-description">{{ slide.description | editable }}</div>
+                  {% endif %}
+                </div>
+              </div>
+
+            </{{tag}}>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="promo-slider-pagination swiper-pagination swiper-pagination-white"></div>
+
+      <div class="promo-slider-prev swiper-button-prev swiper-button-white"></div>
+      <div class="promo-slider-next swiper-button-next swiper-button-white"></div>
+    </div>
+  </div>
+{% endif %}

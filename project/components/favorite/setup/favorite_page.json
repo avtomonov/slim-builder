@@ -1,0 +1,8 @@
+{
+  "pages": {
+    "favorites": {
+      "title": "Избранное",
+      "content": "<div></div>"
+    }
+  }
+}

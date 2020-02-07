@@ -1,0 +1,33 @@
+{% include 'test' %}
+
+<div class="container">
+  <div data-tabs-container class="style_tabs js-style_tabs">
+    <p>
+      <button data-tab-anchor="1" class="style_trigger bttn">
+        Открть гайд
+      </button>
+    </p>
+    <div data-tab-target="1" class="style_target">
+      {% include "style_guide" %}
+    </div>
+  </div>
+</div>
+
+{% include "promo" %}
+
+<div class="container">
+
+  {% include "advantage" %}
+
+  {% include "hits", hits_block: block_lists['hits-block'], hits_title: 'Хиты продаж', hit_cells: 'cell-3 cell-4-md cell-6-xs', hit_mod: 'is-hits' %}
+
+  {% for product in collections.frontpage.products %}
+    {% assign hide_product = false %}
+    {% include "products_slider", products_title: collections.frontpage.title, products_prefix: 'is-frontpage', card_prefix: 'in-frontpage', hide_product: hide_product  %}
+  {% endfor %}
+
+  <div class="page-content">
+    {{ page.content }}
+  </div>
+
+</div>

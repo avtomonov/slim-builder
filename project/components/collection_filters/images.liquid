@@ -1,0 +1,15 @@
+<script>
+  {%- comment -%}
+    создание объекта с картинками из файлов для collection
+  {%- endcomment -%}
+  if (!fileUrl) {
+   var fileUrl = {}
+  }
+  {%- for block in block_lists.with_template['filter_color'].filter-colors.blocks -%}
+  {%- if block.hex != '' -%}
+    fileUrl['{{ block.title | downcase }}'] = '{{ block.hex }}';
+    {% else %}
+    fileUrl['{{ block.title | downcase }}'] = '{{ block.image }}';
+  {%- endif -%}
+  {%- endfor -%}
+</script>

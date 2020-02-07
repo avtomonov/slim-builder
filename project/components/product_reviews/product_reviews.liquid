@@ -1,0 +1,108 @@
+<div class="reviews-wrapper">
+    <div class="reviews-form">
+    {% form review %}
+
+      {% if form.posted_successfully? %}
+        {% if account.reviews_moderated? %}
+          <div class="notice notice-success">
+            Отзыв успешно отправлен.<br/> Он будет проверен администратором перед публикацией.
+          </div>
+        {% else %}
+          <div class="notice notice-success">Отзыв успешно отправлен</div>
+        {% endif %}
+      {% endif %}
+      {% if review.errors.size > 0 %}
+        <div class="notice notice-error editor js-review-notice">
+          <div>
+            Следующие поля заполнены неправильно
+          </div>
+          <ul>
+            {% if review.errors contains 'author' %}
+              <li>Имя</li>{% endif %}
+            {% if review.errors contains 'email' %}
+              <li>E-mail</li>{% endif %}
+            {% if review.errors contains 'content' %}
+              <li>Сообщение</li>{% endif %}
+            {% if review.errors contains 'captcha_solution' %}
+              <li>Капча</li>{% endif %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <div id="review_form" class="form row is-grid flex-top js-review-wrapper">
+
+        <div class="form-row  is-required cell-6  {% if review.errors contains 'author' %}is-error{% endif %}">
+          <label class="form-label">Имя</label>
+
+          <input name="review[author]" value="{{ review.author }}" type="text" class="form-field text-field inpt"/>
+        </div>
+
+        <div class="form-row is-required cell-6  {% if review.errors contains 'email' %}is-error{% endif %}">
+          <label class="form-label">E-mail</label>
+
+          <input name="review[email]" value="{{ review.email }}" type="text" class="form-field text-field inpt"/>
+        </div>
+
+        <div class="form-row is-required cell-12 {% if review.errors contains 'content' %}is-error{% endif %}">
+          <label class="form-label">Сообщение</label>
+
+          <textarea name="review[content]" class="form-field text-field is-textarea inpt">{{ review.content }}</textarea>
+        </div>
+
+        {% if review.captcha_enabled? %}
+          <div class="form-row is-required cell-6  {% if review.errors contains 'captcha_solution' %}is-error{% endif %}">
+          
+            <div id="captcha_challenge" class="captcha-recaptcha">
+              {{ comment | recaptcha }}
+            </div>
+
+          </div>
+        {% endif %}
+
+        <div class="form-row is-required cell-6  star-rating-row">
+          <label class="form-label">Оценка</label>
+
+          <div class="star-rating-wrapper">
+            <div class="star-rating">
+              {% assign r = 5 %}
+              {% for i in (1..5) %}
+                <input name="review[rating]" id="star{{ r }}-{{ product.id }}" type="radio" name="reviewStars" class="star-radio"
+                       value="{{ r }}"/>
+                <label title="{{ r }}" for="star{{ r }}-{{ product.id }}" class="star-label"></label>
+                {% assign r = r | minus: 1 %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-controls cell-12">
+          <button type="submit" class="bttn-prim">Отправить</button>
+        </div>
+
+      </div><!-- /.review_form -->
+
+      {% if account.reviews_moderated? %}
+      <p class="notice notice-info text-info">
+        <i class="fa fa-warning"></i>
+        Перед публикацией отзывы проходят модерацию
+      </p>
+      {% endif %}
+
+    </div>
+
+    {% endform %}
+  </div>
+
+  {% if product.reviews_count > 0 %}
+
+    {% include "reviews_list", reviews_array: product.reviews, reviews_mod: 'product' %}
+
+  {% endif %}
+
+  {% if product.reviews_count == 0 %}
+    <div class="reviews-items-wrap">
+      <div class="reviews-empty notice is-info">
+        Отзывов нет
+      </div>
+    </div>
+  {% endif %}

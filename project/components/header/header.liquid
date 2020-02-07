@@ -1,0 +1,64 @@
+<header class="main-header container">
+  <div class="row flex-middle">
+    <div class="cell-3">
+      <a class="phone in-header" href="tel:{{ account.phone }}">
+        {{ account.phone | editable }}
+      </a>
+      <div>
+        <a href="#feedback-modal" class="js-modal">
+          Заказать звонок
+        </a>
+      </div>
+
+      <div>
+        <button class="bttn-prim bttn-burger" data-open-mobile="main">
+          <img src="{{ 'burger.svg' | asset_url }}" alt="">
+          <span>
+            Открыть мобильное меню
+          </span>
+        </button>
+
+        {% include "mobile_menu", mobile_target: 'main', source_handle: 'all', source_type: 'collection', menu_class: 'mobile_menu', level_limit: 1, data_tabs: false %}
+      </div>
+
+      {% include "geo_manager" %}
+    </div>
+    <div class="cell-6 text-center">
+      <a href="/" class="logotype in-header">
+        <img src="{{ 'logotype.svg' | asset_url }}" alt="">
+      </a>
+    </div>
+    <div class="cell-3 text-right">
+      <div class="compares-widget">
+        <a href="/compares" class="compares-widget-link">
+          Счетчик сравнения: <span data-compares-counter></span>
+        </a>
+      </div>
+      <div class="favorites-widget">
+        <a href="/page/favorites" class="favorites-widget-link">
+          Счетчик избранного: <span data-favorites-counter></span>
+        </a>
+      </div>
+      <div class="cart-widget drop">
+        <a href="/cart_items" class="cart-widget-link">
+          Корзина <span data-cartman-positions-count></span>
+        </a>
+        <div class="drop-target dynamic_basket-drop">
+          {% include "dynamic_basket" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row is-grid flex-between flex-middle">
+    <div class="cell-8">
+      {% include "menu", menu_class: 'main-menu', source_type: 'collection', source_handle: 'all', show_icon: false, level_limit: 2, drop_menu: true, menu_ul_class: 'row flex-between' %}
+    </div>
+    <div class="cell-3">
+      <div class="search-widget">
+        {% include "search_widget" %}
+      </div>
+    </div>
+  </div>
+</header>
+
+

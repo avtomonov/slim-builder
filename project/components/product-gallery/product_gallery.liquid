@@ -1,0 +1,51 @@
+{% assign labels_list = '' %}
+{% if product.properties.stiker %}
+  {% for characteristic in product.properties.stiker.characteristics %}
+    {% capture main_stiker %}<div class="stiker stiker-{{ characteristic.handle }}">{{ characteristic.title }}</div>{% endcapture %}
+    {% assign labels_list = labels_list | append: main_stiker %}
+    {% assign main_stiker = null %}
+  {% endfor %}
+{% endif %}
+
+<div class="gallery-wrapper" id="gallery-wrapper">
+
+  {{ labels_list }}
+
+<div class="gallery-top">
+  <div class="swiper-container js-product-gallery-main">
+    <div class="swiper-wrapper">
+        {% for image in product.images %}
+        {% assign gallery_title = '' %}
+        {% if image.title.size > 0 %}
+          {% capture gallery_title %}title="{{ image.title }}"{% endcapture %}
+        {% endif %}
+          <div href="{{ image.original_url }}" class="swiper-slide gallery-slide MagicZoom swiper-no-swiping" {{ gallery_title }} data-gallery="gallery">
+            {% assign img_title = product.title | escape| replace: '"', '&#34' | replace: '"', '&#34' %}
+            <img {% if forloop.first %}itemprop="image"{% endif %} src="{{ image.original_url }}" data-zoom="{{ image.original_url }}" alt="{{ img_title }}">
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% if product.images.size > 1 %}
+<div class="gallery-thumbs-wrap">
+  <div class="swiper-container gallery-thumbs js-gallery-thumbs">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide js-gallery-trigger">
+            <div class="gallery-thumb image-container is-cover js-image-variant">
+              <img src="{{ image.compact_url }}" alt="">
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- Add Arrows -->
+  </div>
+  {% if product.images.size > 3 %}
+  <div class="swiper-button-next is-thumb"></div>
+  <div class="swiper-button-prev is-thumb"></div>
+  {% endif %}
+</div>
+{% endif %}
+</div>

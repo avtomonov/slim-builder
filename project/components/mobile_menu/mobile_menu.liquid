@@ -1,0 +1,50 @@
+{% assign mobile_target = mobile_target | default: 'mobile_target' %}
+{% assign source_handle = source_handle | default: 'all' %}
+{% assign source_type = source_type | default: 'collection' %}
+{% assign menu_class = menu_class | default: 'mobile_menu' %}
+{% assign level_limit = level_limit | default: 1 %}
+{% assign data_tabs = data_tabs | default: false %}
+
+{% comment %}
+<button type="button" name="button" data-open-mobile="main">
+  Открыть меню
+</button>
+{% include "mobile_menu", mobile_target: 'main', source_handle: 'all', source_type: 'collection', menu_class: 'mobile_menu', level_limit: 1, data_tabs: false %}
+{% endcomment %}
+
+<div class="hide">
+  <div data-target-mobile-menu="{{ mobile_target }}" class="mobile_menu-modal">
+    <div class="mobile_menu-header">
+      <a href="/" class="logotype in-mobile">
+        <img src="{{ 'logotype.svg' | asset_url }}" alt="">
+      </a>
+    </div>
+
+    <div class="mobile_menu-middle">
+      {% include "menu", menu_class: menu_class, source_type: source_type, source_handle: source_handle, show_icon: false, level_limit: level_limit, data_tabs: data_tabs %}
+    </div>
+
+    <div class="mobile_menu-footer">
+      <div class="search-widget in-mobile">
+        {% include "search_widget" %}
+      </div>
+
+      <div class="mobile_menu-social">
+        {% include "social" %}
+      </div>
+
+      <div class="mobile_menu-phone">
+        <a class="phone in-mobile_menu" href="tel:{{ account.phone }}">
+          {{ account.phone | editable }}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% assign mobile_target = nil %}
+{% assign source_handle = nil %}
+{% assign level_limit = nil %}
+{% assign source_type = nil %}
+{% assign data_tabs = nil %}

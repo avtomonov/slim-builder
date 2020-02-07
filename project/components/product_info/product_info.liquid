@@ -1,0 +1,92 @@
+<div class="product-info">
+
+  <form class="" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}" data-recently-view="{{ product.id }}" data-product-gallery=".js-product-gallery-main">
+  <h1 class="product-title">
+    {{ product.title }}
+  </h1>
+
+
+  <div class="product-available" data-product-available>
+    {% if product.available %}
+    Товар в наличии
+    {% else %}
+    Товара нет в наличии
+    {% endif %}
+  </div>
+
+  <div class="product-sku" data-product-sku>
+    {% if product.variants.first.sku %}
+    арт. {{ product.variants.first.sku }}
+    {% endif %}
+  </div>
+
+  <div class="product-prices">
+    <div class="product-old_price">
+      <span data-product-old-price>{{ product.old_price | money }}</span>
+    </div>
+    <div class="product-price">
+      <span data-product-price>{{product.price | money }}</span>
+    </div>
+  </div>
+
+  {% if product.short_description %}
+  <div class="product-short_description">
+    {{ product.short_description }}
+  </div>
+  {% endif %}
+
+  {% if product.properties.size > 0 %}
+  <div class="props">
+    {% for property in product.properties %}
+      <div class="property">
+        <label><span>{{property.title}}</span></label>
+        <span>
+          {% for characteristic in property.characteristics %}
+          {{characteristic.title}}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        </span>
+      </div>
+    {% endfor %}
+   </div>
+  {% endif %}
+
+  {% if product.show_variants? %}
+    <select name="variant_id" data-product-variants>
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
+  {% endif %}
+
+  {% include "quantity", input_type: 'product' %}
+
+  {% unless product.is_bundle and account.enable_comparison? == false %}
+    <button class="bttn-compares is-icon" data-compares-trigger="{{ product.id }}">
+      <i class="fa fa-exchange" aria-hidden="true"></i>
+    </button>
+    <button class="bttn-compares is-bg" data-compares-trigger="{{ product.id }}">
+    </button>
+
+    <button class="bttn-compares" data-compares-trigger="{{ product.id }}" data-compares-added="Удалить из сравнения" data-compares-not-added="Добавить в сравнение">
+    </button>
+  {% endunless %}
+
+  <div class="product-buy">
+    <button type="submit" data-item-add class="bttn-prim in-product">
+      В корзину
+    </button>
+  </div>
+
+  {% if account.quick_checkout.enabled %}
+    <button type="button" class="bttn-second" data-quick-checkout="[data-product-id='{{ product.id }}']">
+      В один клик
+    </button>
+  {% endif %}
+
+    <button type="button" class="bttn-favorite" data-favorites-trigger="{{ product.id }}">
+    </button>
+
+  </form>
+</div>

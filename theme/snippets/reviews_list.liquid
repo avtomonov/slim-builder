@@ -1,0 +1,56 @@
+{% comment %}
+  {% include "reviews_list", reviews_array: product.reviews, reviews_mod: 'product' %}
+{% endcomment %}
+
+{% unless reviews_array %}
+  {% assign reviews_array = product.reviews %}
+  {% unless reviews_array %}
+    {% assign reviews_array = article.comments %}
+  {% endunless %}
+{% endunless %}
+
+{% unless reviews_limit %}
+  {% assign reviews_limit = 100 %}
+{% endunless %}
+
+{% unless reviews_mod %}
+  {% if template contains 'article' %}
+    {% assign reviews_mod = 'article' %}
+    {% else %}
+    {% assign reviews_mod = 'product' %}
+  {% endif %}
+{% endunless %}
+
+{% if reviews_array.size > 0 %}
+
+<div class="reviews-items-wrap is-{{ reviews_mod }}">
+
+  {% for review in reviews_array limit: reviews_limit %}
+    <div class="reviews-item">
+
+      <div class="review-header">
+        <div class="author"><i class="fa fa-user"></i> {{ review.author }}</div>
+        <div class="date"><i class="fa fa-calendar"></i> {{ review.created_at | date: "%d.%m.%Y %H:%M" }}</div>
+        <div class="star-rating-wrapper">
+          <div class="star-rating">
+            {% assign r = 5 %}
+            {% for i in (1..5) %}
+              <span class="star-item {% if review.rating == r %}active{% endif %}"></span>
+              {% assign r = r | minus: 1 %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="review-body">
+        <p class="text">
+          {{ review.content }}
+        </p>
+      </div>
+      <div class="review-footer">
+      </div>
+    </div><!-- /.reviews-item -->
+  {% endfor %}
+
+</div><!-- /.reviews-list -->
+
+{% endif %}

@@ -1,0 +1,7 @@
+.page_size-radio [type="radio"]:checked + .page_size-radio-control {
+  color: $color-link-primary;
+  font-weight: bold;
+}
+.page_size-radio {
+  vertical-align: bottom;
+}

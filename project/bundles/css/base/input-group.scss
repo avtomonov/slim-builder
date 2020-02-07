@@ -1,0 +1,85 @@
+.inpt-group {
+  position: relative;
+  display: flex;
+  width: 100%
+}
+
+.inpt-group .inpt-control {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0
+}
+
+.inpt-group .inpt-control:active,.inpt-group .inpt-control:focus,.inpt-group .inpt-control:hover {
+  z-index: 3
+}
+
+.inpt-group .inpt-control,.inpt-group-addon,.inpt-group-bttn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+.inpt-group .inpt-control:not(:first-child):not(:last-child),.inpt-group-addon:not(:first-child):not(:last-child),.inpt-group-bttn:not(:first-child):not(:last-child) {
+  border-radius: 0
+}
+
+.inpt-group-addon,.inpt-group-bttn {
+  white-space: nowrap;
+  vertical-align: middle
+}
+
+.inpt-group-addon {
+  margin-bottom: 0;
+}
+
+
+.inpt-group-addon input[type=checkbox],.inpt-group-addon input[type=radio] {
+  margin-top: 0
+}
+
+.inpt-group .inpt-control:not(:last-child),.inpt-group-bttn:not(:first-child)>.bttn-group:not(:last-child)>.bttn,.inpt-group-bttn:not(:first-child)>.bttn:not(:last-child):not(.dropdown-toggle),.inpt-group-bttn:not(:last-child)>.bttn,.inpt-group-bttn:not(:last-child)>.bttn-group>.bttn,.inpt-group-bttn:not(:last-child)>.dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: 0;
+}
+
+.inpt-group .inpt-control:not(:first-child),.inpt-group-bttn:not(:first-child)>.bttn,.inpt-group-bttn:not(:first-child)>.bttn-group>.bttn,.inpt-group-bttn:not(:first-child)>.dropdown-toggle,.inpt-group-bttn:not(:last-child)>.bttn-group:not(:first-child)>.bttn,.inpt-group-bttn:not(:last-child)>.bttn:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left: 0;
+}
+
+
+.inpt-group-bttn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap
+}
+
+.inpt-group-bttn>.bttn {
+  flex: 1 1 0%
+}
+
+.inpt-group-bttn>.bttn+.bttn {
+  margin-left: -1px
+}
+
+.inpt-group-bttn>.bttn:active,.inpt-group-bttn>.bttn:focus,.inpt-group-bttn>.bttn:hover {
+  z-index: 3
+}
+
+.inpt-group-bttn:not(:last-child)>.bttn,.inpt-group-bttn:not(:last-child)>.bttn-group {
+  margin-right: -1px
+}
+
+.inpt-group-bttn:not(:first-child)>.bttn,.inpt-group-bttn:not(:first-child)>.bttn-group {
+  z-index: 2;
+  margin-left: -1px
+}
+
+.inpt-group-bttn:not(:first-child)>.bttn-group:active,.inpt-group-bttn:not(:first-child)>.bttn-group:focus,.inpt-group-bttn:not(:first-child)>.bttn-group:hover,.inpt-group-bttn:not(:first-child)>.bttn:active,.inpt-group-bttn:not(:first-child)>.bttn:focus,.inpt-group-bttn:not(:first-child)>.bttn:hover {
+  z-index: 3
+}

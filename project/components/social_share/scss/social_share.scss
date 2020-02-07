@@ -1,0 +1,17 @@
+.social_share-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.social_share {
+  margin: 0.5rem 0;
+}
+.social_share-list a {
+  color: $color-link-secondary;
+  font-size: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}

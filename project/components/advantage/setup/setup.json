@@ -1,0 +1,56 @@
+{
+  "block_templates": {
+    "benefit": {
+      "name": "Преимущество",
+      "block_fields": {
+        "image": {
+          "name": "Изображение",
+          "kind": "account_file"
+        },
+        "link": {
+          "name": "Ссылка",
+          "kind": "text"
+        }
+      }
+    }
+  },
+  "block_lists": {
+    "advantage": {
+      "title": "Преимущества",
+      "blocks": ["advantage-1", "advantage-2", "advantage-3", "advantage-4", "advantage-5"],
+      "block_template": "benefit"
+    }
+  },
+  "blocks": {
+    "advantage-1": {
+      "title": "Модели разработаны с большой любовью",
+      "block_template": "benefit",
+      "link": "#",
+      "image": "http://fakeimg.pl/300x300/d5d5d5/"
+    },
+    "advantage-2": {
+      "title": "Оригинальный крой и фасоны",
+      "block_template": "benefit",
+      "link": "#",
+      "image": "http://fakeimg.pl/300x300/d5d5d5/"
+    },
+    "advantage-3": {
+      "title": "Акции, подарки, сезонные скидки",
+      "block_template": "benefit",
+      "link": "#",
+      "image": "http://fakeimg.pl/300x300/d5d5d5/"
+    },
+    "advantage-4": {
+      "title": "Гарантированный возврат",
+      "block_template": "benefit",
+      "link": "#",
+      "image": "http://fakeimg.pl/300x300/d5d5d5/"
+    },
+    "advantage-5": {
+      "title": "Доставка по всей России",
+      "block_template": "benefit",
+      "link": "#",
+      "image": "http://fakeimg.pl/300x300/d5d5d5/"
+    }
+  }
+}

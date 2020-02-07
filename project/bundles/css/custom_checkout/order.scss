@@ -1,0 +1,31 @@
+.green {
+  background: #5ea117;
+  color: #ffffff;
+}
+#flash_messages .notice {
+  background: #5ea117;
+  color: #fff;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  line-height: 1.2;
+}
+#flash_messages .error {
+  background: #EF5350;
+  color: #fff;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  line-height: 1.2;
+}
+#flash_messages .status-warning {
+  background: #ffc524;
+  color: #444;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  line-height: 1.2;
+}
+
+#top_info h3 > * {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 3px 10px;
+}

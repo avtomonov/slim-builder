@@ -1,0 +1,64 @@
+{% assign anchor = '' %}
+{% assign target = '' %}
+{% assign menu_ul_class = '' %}
+{% assign container = '' %}
+{% assign data_tabs = false %}
+{% assign data_tabs_link = false %}
+
+{% assign level_limit = level_limit | default: 100 %}
+{% assign links_limit = links_limit | default: 100 %}
+{% assign show_icon = show_icon | default: false %}
+
+{% if source_type == 'collection' %}
+  {% include "menu-type-collection" %}
+
+{% elsif source_type == 'blog' %}
+  <ul class="{{ menu_class }} menu level-1" data-menu-id="{{ menu_class }}">
+    {% for link in blogs[source_handle].articles limit: links_limit %}
+
+      <li class="{{ menu_class }}-item menu-item">
+        <div class="{{ menu_class }}-item-controls menu-item-controls">
+          {% if show_icon %}
+            <span class="{{ menu_class }}-icon menu-icon"></span>
+          {% endif %}
+
+          <a href="{{ link.url }}" class="{{ menu_class }}-link menu-link" data-menu-link="{{ link.url | split: '/' | last }}" data-menu-link-source="article">
+            {{ link.title }}
+          </a>
+        </div>
+      </li>
+
+    {% endfor %}
+  </ul>
+
+{% else %}
+
+  <ul class="{{ menu_class }} menu">
+    {% assign node_level = 1 %}
+    {% for link in linklists[source_handle].links limit: links_limit %}
+      {% assign current = '' %}
+      {% if link.current? %}
+        {% assign current = 'is-current' %}
+      {% endif %}
+      {% include "menu-item" %}
+    {% endfor %}
+  </ul>
+
+{% endif %}
+{% assign prev_link_level = nil %}
+{% assign source_handle = nil %}
+{% assign menu_class = nil %}
+{% assign source_type = nil %}
+{% assign show_icon = nil %}
+{% assign show_count = nil %}
+{% assign level_limit = nil %}
+{% assign anchor = nil %}
+{% assign target = nil %}
+{% assign container = nil %}
+{% assign data_tabs_link = nil %}
+{% assign data_tabs = nil %}
+{% assign hide_marker = nil %}
+{% assign data_tabs_link = nil %}
+{% assign menu_ul_class = nil %}
+{% assign links_limit = nil %}
+{% assign whith_drop = nil %}

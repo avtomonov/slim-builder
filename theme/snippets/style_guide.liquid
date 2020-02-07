@@ -1,0 +1,1973 @@
+<div class="container">
+  <div>
+    <div class="row is-grid">
+      <div>
+        <button data-clear-cookies="" class="bttn-transparent">
+          Очистить куки
+        </button>
+      </div>
+      <div>
+        <button data-clear-localforage="" class="bttn-prim">
+          Очистить localforage
+        </button>
+      </div>
+      <div>
+        <button data-clear-cart="" class="bttn-second">
+          Очистить корзину
+        </button>
+      </div>
+    </div>
+    <h2>
+      Стандартные ссылки
+    </h2>
+    <div>
+      <a href="/admin2/block_lists_and_blocks">
+        Редактировать блоки
+      </a>
+    </div>
+    <div>
+      <a href="/#style">
+        Гайд
+      </a>
+    </div>
+    <div>
+      <a href="/cart_items">
+        Корзина
+      </a>
+    </div>
+    <div>
+      <a href="/page/feedback">
+        Обратная связь
+      </a>
+    </div>
+    <div>
+      <a href="/blogs/blog/">
+        Блог
+      </a>
+    </div>
+    <div>
+      <a href="/client_account/orders/">
+        Личный кабинет
+      </a>
+    </div>
+    <div>
+      <a href="/compares/">
+        Сравнение
+      </a>
+    </div>
+    <div>
+      <h3>
+        Каталоги
+      </h3>
+      {% for collection in collections.all.subcollections limit: 5 %}
+        <nav>
+          <ul>
+            <li>
+              <a href="{{ collection.url }}">
+                {{ collection.title }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h2>
+    Полезные ссылки
+  </h2>
+
+  <p>
+    <a target="_blank" href="http://yoksel.github.io/url-encoder/">
+      svg -> background-image
+    </a>
+  </p>
+
+  <p>
+    <a target="_blank" href="https://transfonter.org/">
+      Трансформация шрифтов (transfonter)
+    </a>
+  </p>
+
+  <p>
+    <a target="_blank" href="http://liquidhub.ru/">
+      http://liquidhub.ru/
+    </a>
+  </p>
+
+  <p>
+    <a target="_blank" href="http://www.colorzilla.com/gradient-editor/">
+      Генератор градиентов
+    </a>
+  </p>
+
+  <p>
+    <a target="_blank" href="http://regexpres.narod.ru/calculator.html">
+      Генератор регулярных выражений
+    </a>
+  </p>
+
+  <p>
+    <a target="_blank" href="http://youmightnotneedjquery.com/">
+      jQuery методы на ванильном js
+    </a>
+  </p>
+
+  <h3>Если нужно скрыть верстку от клиента</h3>
+<pre>
+if ($.cookie('dev')) {
+  $('body').show()
+}else{
+  if (window.location.href.indexOf('dev=true') == -1) {
+    $('body').remove();
+  }
+}
+
+if (~window.location.href.indexOf('dev=true')) {
+  $('body').show();
+  $.cookie('dev', true, {
+    path: '/'
+  });
+}
+</pre>
+  {% include "settings_guide" %}
+</div>
+
+<div class="style_guide">
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div class="sticky is-bottom">
+      <h2>
+        Spider.css
+      </h2>
+      <p>
+        <b>
+          Если <i>$gutter-width-primary</i> == 0. При уменьшении экрана к <i>.container</i> все равно добавляются паддинги.
+        </b>
+      </p>
+    </div>
+
+
+  </div>
+  <div class="cell-4">
+<pre>
+.container
+  .row
+    .cell-4
+    .cell-4
+    .cell-4
+</pre>
+        <div class="container">
+          <div class="row">
+            <div class="cell-4">
+              <div class="guide-fill text-center">cell-4</div>
+            </div>
+            <div class="cell-4">
+              <div class="guide-fill text-center">cell-4</div>
+            </div>
+            <div class="cell-4">
+              <div class="guide-fill text-cent
+              er">cell-4</div></div>
+          </div>
+        </div>
+
+<div>
+<pre>
+.row.is-stretch
+  div
+  div
+  div
+  div
+</pre>
+<div class="row is-stretch">
+  <div>
+    <div class="guide-fill text-cent
+    er">is-stretch</div>
+  </div>
+  <div>
+    <div class="guide-fill text-cent
+    er">is-stretch</div>
+  </div>
+  <div>
+    <div class="guide-fill text-cent
+    er">is-stretch</div>
+  </div>
+  <div>
+    <div class="guide-fill text-cent
+    er">is-stretch</div>
+  </div>
+</div>
+</div>
+  </div>
+  <div class="cell-5">
+<pre>
+.container
+  .row.is-grid
+    .cell-4
+    .cell-4
+    .cell-4
+</pre>
+        <div class="container">
+          <div class="row is-grid">
+            <div class="cell-4">
+              <div class="guide-fill text-center">cell-4</div>
+            </div>
+            <div class="cell-4">
+              <div class="guide-fill text-center">cell-4</div>
+            </div>
+            <div class="cell-4">
+              <div class="guide-fill text-cent
+              er">cell-4</div></div>
+          </div>
+        </div>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Кнопки
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\buttons.scss
+      </b>
+    </p>
+  </div>
+
+  <div class="cell-4">
+    <div>
+      <div>
+        <div>
+          <p>
+            <button class="bttn">В корзину (bttn)</button>
+          </p>
+          <p>
+            <button class="bttn-prim">В корзину (bttn-prim)</button>
+          </p>
+          <p>
+            <button class="bttn-second">В корзину (bttn-second)</button>
+          </p>
+        </div>
+        <br>
+        <div>
+          <p>
+            <button class="bttn-transparent">Быстрая покупка 1 (bttn-transparent)</button>
+          </p>
+          <p>
+            <button class="bttn-transparent-second">Быстрая покупка 1 (bttn-transparent-second)</button>
+          </p>
+        </div>
+        <br>
+        <div>
+          <p>
+            <button class="bttn-fill">Быстрая покупка (bttn-fill)</button>
+          </p>
+          <p>
+            <button class="bttn-fill-second">Быстрая покупка (bttn-fill-second)</button>
+          </p>
+        </div>
+      </div>
+
+      <h3>Links</h3>
+      <div>
+        <p>
+          <a href="#" class="bttn">В корзину (bttn)</a>
+        </p>
+        <p>
+          <a href="#" class="bttn-prim">В корзину (bttn-prim)</a>
+        </p>
+        <p>
+          <a href="#" class="bttn-second">В корзину (bttn-second)</a>
+        </p>
+      </div>
+
+      <h3>inputs</h3>
+
+      <div>
+        <p>
+          <input class="bttn" type="button" name="" value="В корзину (bttn)">
+        </p>
+        <p>
+          <input class="bttn-prim" type="button" name="" value="В корзину (bttn-prim)">
+        </p>
+        <p>
+          <input class="bttn-second" type="button" name="" value="В корзину (bttn-second)">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="cell-5">
+<pre v-pre class="html">
+<p>&nbsp; &lt;button class=&quot;bttn&quot;&gt;В корзину (bttn)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-prim&quot;&gt;В корзину (bttn-prim)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-second&quot;&gt;В корзину (bttn-second)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-transparent&quot;&gt;Быстрая покупка 1 (bttn-transparent)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-transparent-second&quot;&gt;Быстрая покупка 1 (bttn-transparent-second)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-fill&quot;&gt;Быстрая покупка (bttn-fill)&lt;/button&gt;<br />
+&nbsp; &lt;button class=&quot;bttn-fill-second&quot;&gt;Быстрая покупка (bttn-fill-second)&lt;/button&gt;</p>
+
+</pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      .page-title
+    </h2>
+    <p>
+      <b>project\bundles\css\base\page.scss</b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <h1 class="page-title">Заголовок страницы</h1>
+    <h2 class="page-title">Заголовок страницы</h2>
+    <h3 class="page-title">Заголовок страницы</h3>
+    <div class="page-title">Заголовок страницы</div>
+    <span class="page-title">Заголовок страницы</span>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+&lt;h1 class="page-title"&gt;Заголовок страницы&lt;/h1&gt;
+&lt;h2 class="page-title"&gt;Заголовок страницы&lt;/h2&gt;
+&lt;h3 class="page-title"&gt;Заголовок страницы&lt;/h3&gt;
+&lt;div class="page-title"&gt;Заголовок страницы&lt;/div&gt;
+&lt;span class="page-title"&gt;Заголовок страницы&lt;/span&gt;
+    </pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Уведомления
+    </h2>
+    <p>
+      <b>project\bundles\css\base\notice.scss</b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <div class="notice is-warning">
+      <p>
+        После настройки удалить из темы компонент <strong>style_guide</strong>!
+      </p>
+    </div>
+    <div class="notice is-success">
+      <p>
+        Удобная настройка в одном компоненте
+      </p>
+    </div>
+    <div class="notice is-info">
+      <p>
+        Развиваем проект обратной связью
+      </p>
+    </div>
+    <div class="notice is-error">
+      <p>
+        Сообщаем о багах
+      </p>
+    </div>
+  </div>
+  <div class="cell-5">
+      <pre v-pre class="html">
+&lt;div class=&quot;notice is-warning&quot;&gt;<br />
+&nbsp; &lt;p&gt;<br />
+&nbsp; &nbsp; После настройки удалить из темы компонент &lt;strong&gt;style_guide&lt;/strong&gt;!<br />
+&nbsp; &lt;/p&gt;<br />
+&lt;/div&gt;<br />
+&lt;div class=&quot;notice is-success&quot;&gt;<br />
+&nbsp; &lt;p&gt;<br />
+&nbsp; &nbsp; Удобная настройка в одном компоненте<br />
+&nbsp; &lt;/p&gt;<br />
+&lt;/div&gt;<br />
+&lt;div class=&quot;notice is-info&quot;&gt;<br />
+&nbsp; &lt;p&gt;<br />
+&nbsp; &nbsp; Развиваем проект обратной связью<br />
+&nbsp; &lt;/p&gt;<br />
+&lt;/div&gt;<br />
+&lt;div class=&quot;notice is-error&quot;&gt;<br />
+&nbsp; &lt;p&gt;<br />
+&nbsp; &nbsp; Сообщаем о багах<br />
+&nbsp; &lt;/p&gt;<br />
+&lt;/div&gt;
+      </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="cell-3">
+    <h2>
+      Alertify
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\alertify.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <p>
+      <button class="bttn" data-alert-success>
+        Alertify success
+      </button>
+      <button class="bttn" data-alert-error>
+        Alertify error
+      </button>
+    </p>
+    <p>
+      <button class="bttn" data-alert-warning>
+        Alertify warning
+      </button>
+      <button class="bttn" data-alert-message>
+        Alertify message
+      </button>
+    </p>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+&nbsp; $(&#39;[data-alert-success]&#39;).click(function(event) {<br />
+&nbsp; &nbsp; alertify.success(&#39;Товар добавлен в корзину&#39;, 10)<br />
+&nbsp; });<br />
+&nbsp; $(&#39;[data-alert-error]&#39;).click(function(event) {<br />
+&nbsp; &nbsp; alertify.error(&#39;Ошибка при отправке формы&#39;, 10)<br />
+&nbsp; });<br />
+&nbsp; $(&#39;[data-alert-warning]&#39;).click(function(event) {<br />
+&nbsp; &nbsp; alertify.warning(&#39;Товар удален&#39;, 10)<br />
+&nbsp; });<br />
+&nbsp; $(&#39;[data-alert-message]&#39;).click(function(event) {<br />
+&nbsp; &nbsp; alertify.message(&#39;Все поля обязательны для заполнения&#39;, 10)<br />
+&nbsp; });
+    </pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      pagination
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\pagination.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <ul class="pagination">
+      <li class="pagination-item is-current">
+        <span class="pagination-link">
+          1
+        </span>
+      </li>
+      <li class="pagination-item">
+        <a href="/collection/tolstovki?page=2" class="pagination-link">
+          2
+        </a>
+      </li>
+      <li class="pagination-item">
+        <a href="/collection/tolstovki?page=3" class="pagination-link">
+          3
+        </a>
+      </li>
+      <li class="pagination-item">
+        <a href="/collection/tolstovki?page=2" class="pagination-link">
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </li>
+      <li class="pagination-item">
+        <a href="/collection/tolstovki?page=3" class="pagination-link">
+          <i class="fa fa-angle-double-right"></i>
+        </a>
+      </li>
+      <li class="pagination-item">
+        <a href="/collection/tolstovki?page=3" class="pagination-link">
+          Далее
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<p>&nbsp; &lt;ul class=&quot;pagination&quot;&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;pagination-item is-current&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;span class=&quot;pagination-link&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; 1<br />
+&nbsp; &nbsp; &nbsp; &lt;/span&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;pagination-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a href=&quot;/collection/tolstovki?page=2&quot; class=&quot;pagination-link&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; 2<br />
+&nbsp; &nbsp; &nbsp; &lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;pagination-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a href=&quot;/collection/tolstovki?page=3&quot; class=&quot;pagination-link&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; 3<br />
+&nbsp; &nbsp; &nbsp; &lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;pagination-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a href=&quot;/collection/tolstovki?page=2&quot; class=&quot;pagination-link&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;pagination-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a href=&quot;/collection/tolstovki?page=3&quot; class=&quot;pagination-link&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;i class=&quot;fa fa-angle-double-right&quot;&gt;&lt;/i&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &lt;/ul&gt;</p>
+
+    </pre>
+  </div>
+</div>
+<div>
+
+
+</div>
+
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div class="sticky">
+      <h2>
+        breadcrumb
+      </h2>
+      <p>
+        <b>
+          project\bundles\css\base\breadcrumb.scss
+        </b>
+      </p>
+    </div>
+
+  </div>
+  <div class="cell-4">
+    <div class="breadcrumb-wrapper">
+
+      <ul class="breadcrumb">
+
+        <li class="breadcrumb-item home">
+          <a class="breadcrumb-link" title="Главная" href="#">Главная</a>
+        </li>
+
+        <li class="breadcrumb-item">
+          <a class="breadcrumb-link" title="LOOKBOOK" href="#">Каталог 1</a>
+        </li>
+
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-link current-page">Вложенный каталог 1</span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<p>&lt;div class=&quot;breadcrumb-wrapper&quot;&gt;<br />
+&nbsp; &lt;ul class=&quot;breadcrumb&quot;&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;breadcrumb-item home&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a class=&quot;breadcrumb-link&quot; title=&quot;Главная&quot; href=&quot;#&quot;&gt;Главная&lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;breadcrumb-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;a class=&quot;breadcrumb-link&quot; title=&quot;LOOKBOOK&quot; href=&quot;#&quot;&gt;Каталог 1&lt;/a&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &nbsp; &lt;li class=&quot;breadcrumb-item&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;span class=&quot;breadcrumb-link current-page&quot;&gt;Вложенный каталог 1&lt;/span&gt;<br />
+&nbsp; &nbsp; &lt;/li&gt;<br />
+&nbsp; &lt;/ul&gt;<br />
+&lt;/div&gt;</p>
+
+    </pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div class="sticky">
+      <h2>Чекбокс</h2>
+      <p>
+        <b>
+          project\bundles\css\base\chkbx.scss
+        </b>
+      </p>
+      <p>
+        Инпут <b>.chkbx</b> стоит заворачивать в тег label.
+      </p>
+    </div>
+  </div>
+  <div class="cell-4">
+    <div>
+
+      <label class="chkbx-label">
+        <input class="chkbx" type="checkbox" value="11111" name="characteristics[]">
+        <span class="chkbx-control"></span>
+        <span>Белый</span>
+      </label>
+
+      <label class="chkbx-label">
+        <input checked class="chkbx" type="checkbox" value="22222" name="characteristics[]">
+        <span class="chkbx-control"></span>
+        <span>
+          Белый
+          <br>
+          Красный
+          <br>
+          Синий
+        </span>
+      </label>
+
+    </div>
+    <div>
+      <p>
+        <label>
+          <input class="chkbx" type="checkbox" value="33333" name="characteristics[]">
+          <span class="chkbx-control"></span>
+        </label>
+
+        <label>
+          <input checked class="chkbx" type="checkbox" value="44444" name="characteristics[]">
+          <span class="chkbx-control"></span>
+        </label>
+
+        <label>
+          <input disabled class="chkbx" type="checkbox" value="55555" name="characteristics[]">
+          <span class="chkbx-control"></span>
+        </label>
+      </p>
+      <p>
+        <input type="checkbox" value="66666" name="characteristics[]">
+        <input checked type="checkbox" value="77777" name="characteristics[]">
+        <input disabled type="checkbox" value="88888" name="characteristics[]">
+      </p>
+    </div>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+    <code class="language-html">&lt;div&gt;
+
+          &lt;label class="chkbx-label"&gt;
+            &lt;input class="chkbx" type="checkbox" value="11111" name="characteristics[]"&gt;
+            &lt;span class="chkbx-control"&gt;&lt;/span&gt;
+            &lt;span&gt;Белый&lt;/span&gt;
+          &lt;/label&gt;
+
+          &lt;label class="chkbx-label"&gt;
+            &lt;input checked class="chkbx" type="checkbox" value="22222" name="characteristics[]"&gt;
+            &lt;span class="chkbx-control"&gt;&lt;/span&gt;
+            &lt;span&gt;
+              Белый
+              &lt;br&gt;
+              Красный
+              &lt;br&gt;
+              Синий
+            &lt;/span&gt;
+          &lt;/label&gt;
+
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;p&gt;
+            &lt;label&gt;
+              &lt;input class="chkbx" type="checkbox" value="33333" name="characteristics[]"&gt;
+              &lt;span class="chkbx-control"&gt;&lt;/span&gt;
+            &lt;/label&gt;
+
+            &lt;label&gt;
+              &lt;input checked class="chkbx" type="checkbox" value="44444" name="characteristics[]"&gt;
+              &lt;span class="chkbx-control"&gt;&lt;/span&gt;
+            &lt;/label&gt;
+
+            &lt;label&gt;
+              &lt;input disabled class="chkbx" type="checkbox" value="55555" name="characteristics[]"&gt;
+              &lt;span class="chkbx-control"&gt;&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+            &lt;input type="checkbox" value="66666" name="characteristics[]"&gt;
+            &lt;input checked type="checkbox" value="77777" name="characteristics[]"&gt;
+            &lt;input disabled type="checkbox" value="88888" name="characteristics[]"&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;</code></pre>
+
+
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div>
+      <h2>Селекты</h2>
+      <p>
+        <b>
+          project\bundles\css\base\select.scss
+        </b>
+      </p>
+    </div>
+  </div>
+  <div class="cell-4">
+    <select class="slct" name="select">
+      <option value="111">111</option>
+      <option value="222">222</option>
+      <option value="333">333</option>
+    </select>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<code class="language-html">&lt;select class="slct" name="select"&gt;
+ &lt;option value="111"&gt;111&lt;/option&gt;
+ &lt;option value="222"&gt;222&lt;/option&gt;
+ &lt;option value="333"&gt;333&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      inpt-group
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\input-group.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <p>
+      <form class="inpt-group">
+        <input class="inpt-control inpt" type="text" name="city" value="" placeholder="Ввести свой город">
+        <button type="submit" name="button" class="bttn-prim inpt-group-addon">
+          Обновить
+        </button>
+      </form>
+    </p>
+
+    <p>
+      <form class="inpt-group">
+        <button type="submit" name="button" class="bttn-second inpt-group-addon">
+          Подписаться
+        </button>
+        <input class="inpt-control inpt" type="email" name="email" value="" placeholder="Ввести свой email">
+      </form>
+    </p>
+
+    <p>
+      <form class="inpt-group">
+        <a href="/search" class="bttn-prim inpt-group-addon">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+        <input class="inpt-control inpt" type="text" name="q" value="" placeholder="Поиск">
+        <button type="submit" name="button" class="bttn-prim inpt-group-addon">
+          Найти
+        </button>
+      </form>
+    </p>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+    <code class="language-html">&lt;p&gt;
+      &lt;form class="inpt-group"&gt;
+        &lt;input class="inpt-control inpt" type="text" name="city" value="" placeholder="Ввести свой город"&gt;
+        &lt;button type="submit" name="button" class="bttn-prim inpt-group-addon"&gt;
+          Обновить
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;form class="inpt-group"&gt;
+        &lt;button type="submit" name="button" class="bttn-second inpt-group-addon"&gt;
+          Подписаться
+        &lt;/button&gt;
+        &lt;input class="inpt-control inpt" type="email" name="email" value="" placeholder="Ввести свой email"&gt;
+      &lt;/form&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;form class="inpt-group"&gt;
+        &lt;a href="/search" class="bttn-prim inpt-group-addon"&gt;
+          &lt;i class="fa fa-search" aria-hidden="true"&gt;&lt;/i&gt;
+        &lt;/a&gt;
+        &lt;input class="inpt-control inpt" type="text" name="q" value="" placeholder="Поиск"&gt;
+        &lt;button type="submit" name="button" class="bttn-prim inpt-group-addon"&gt;
+          Найти
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/p&gt;</code></pre>
+
+    <p>&nbsp;</p>
+
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>Считалка</h2>
+    <p>
+      <b>
+        project\components\quantity\scss\quantity.scss
+      </b>
+    </p>
+    <p>
+      <b>
+        project\bundles\css\base\buttons.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <div>
+
+      <p>
+        <button class="bttn-count">+</button>
+        <button class="bttn-count">–</button>
+      </p>
+      <p>
+        <a class="bttn-count">+</a>
+        <a class="bttn-count">-</a>
+      </p>
+
+      <div class="quantity is-product">
+        <div class="quantity-controls">
+          <button class="quantity-control bttn-count">
+            -
+          </button>
+
+          <input class="quantity-input" type="text" name="quantity" value="1">
+
+          <button class="quantity-control bttn-count">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cell-5">
+    <pre>
+    <code>&lt;div class="quantity is-product"&gt;
+      &lt;div class="quantity-controls"&gt;
+        &lt;button class="quantity-control bttn-count"&gt;
+          -
+        &lt;/button&gt;
+
+        &lt;input class="quantity-input" type="text" name="quantity" value="1"&gt;
+
+        &lt;button class="quantity-control bttn-count"&gt;
+          +
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div>
+      <h2>Избанное</h2>
+      <p>
+        <b>
+          project\bundles\css\base\buttons.scss
+        </b>
+      </p>
+    </div>
+  </div>
+  <div class="cell-4">
+    <button class="bttn-favorite js-fav-style"></button>
+    <button class="bttn-favorite is-added js-fav-style"></button>
+    <a class="bttn-favorite js-fav-style"></a>
+    <a class="bttn-favorite is-added js-fav-style"></a>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<code>&lt;button class="bttn-favorite"&gt;&lt;/button&gt;
+&lt;button class="bttn-favorite is-added"&gt;&lt;/button&gt;</code></pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Кнопки сравнения
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\buttons.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    {% for product in collections.all.products limit: 1 %}
+    {% unless product.is_bundle and account.enable_comparison? == false %}
+      <button class="bttn-compares is-icon" data-compares-trigger="{{ product.id }}">
+        <i class="fa fa-exchange" aria-hidden="true"></i>
+      </button>
+      <button class="bttn-compares is-bg" data-compares-trigger="{{ product.id }}">
+      </button>
+
+      <button class="bttn-compares" data-compares-trigger="{{ product.id }}" data-compares-added="Удалить из сравнения" data-compares-not-added="Добавить в сравнение">
+      </button>
+
+      <button class="bttn-prim" data-compares-add="{{ product.id }}">
+        Добавить
+      </button>
+
+      <button class="bttn-second" data-compares-remove="{{ product.id }}">
+        Удалить
+      </button>
+    {% endunless %}
+    {% endfor %}
+    <div>
+      Счетчик <span data-compares-counter></span>
+    </div>
+  </div>
+  <div class="cell-5">
+    {% raw %}
+    <pre v-pre class="html">
+<code>&lt;button class="bttn-compares is-icon" data-compares-trigger="{{ product.id }}"&gt;
+  &lt;i class="fa fa-exchange" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button class="bttn-compares is-bg" data-compares-trigger="{{ product.id }}"&gt;
+&lt;/button&gt;
+
+&lt;button class="bttn-compares" data-compares-trigger="{{ product.id }}" data-compares-added="Удалить из сравнения" data-compares-not-added="Добавить в сравнение"&gt;
+&lt;/button&gt;
+
+&lt;button class="bttn-prim" data-compares-add="{{ product.id }}"&gt;
+  Добавить
+&lt;/button&gt;
+
+&lt;button class="bttn-second" data-compares-remove="{{ product.id }}"&gt;
+  Удалить
+&lt;/button&gt;
+
+&lt;div&gt;
+  Счетчик &lt;span data-compares-counter&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+ {% endraw %}
+<p>&nbsp;</p>
+
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>рейтинг</h2>
+    <p>
+      <b>
+        project\bundles\css\base\star-rating.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <div class="star-rating-wrapper">
+      <div class="star-rating">
+        {% assign r = 5 %}
+        {% for i in (1..5) %}
+          <input name="review[rating]" id="star{{ r }}-{{ product.id }}" type="radio" name="reviewStars" class="star-radio"
+                 value="{{ r }}"/>
+          <label title="{{ r }}" for="star{{ r }}-{{ product.id }}" class="star-label"></label>
+          {% assign r = r | minus: 1 %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <p>
+      <div class="star-rating-wrapper">
+        <div class="star-rating">
+          <span class="star-item"></span>
+          <span class="star-item active"></span>
+          <span class="star-item"></span>
+          <span class="star-item"></span>
+          <span class="star-item"></span>
+        </div>
+      </div>
+    </p>
+  </div>
+  <div class="cell-5">{% raw %}
+    <pre v-pre class="html">
+<code>&lt;div class="star-rating-wrapper"&gt;
+  &lt;div class="star-rating"&gt;
+    {% assign r = 5 %}
+    {% for i in (1..5) %}
+      &lt;input name="review[rating]" id="star{{ r }}-{{ product.id }}" type="radio" name="reviewStars" class="star-radio"
+             value="{{ r }}"/&gt;
+      &lt;label title="{{ r }}" for="star{{ r }}-{{ product.id }}" class="star-label"&gt;&lt;/label&gt;
+      {% assign r = r | minus: 1 %}
+    {% endfor %}
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="star-rating-wrapper"&gt;
+  &lt;div class="star-rating"&gt;
+    &lt;span class="star-item"&gt;&lt;/span&gt;
+    &lt;span class="star-item active"&gt;&lt;/span&gt;
+    &lt;span class="star-item"&gt;&lt;/span&gt;
+    &lt;span class="star-item"&gt;&lt;/span&gt;
+    &lt;span class="star-item"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+ {% endraw %}
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <div>
+       <h2>
+         Мобильные панели
+       </h2>
+    </div>
+  </div>
+  <div class="cell-4">
+    <button type="button" class="bttn-fill" data-open-mobile-menu name="button">
+      Открыть панель слева
+    </button>
+    <div class="hide">
+      <div class="mobile_menu">
+        {% for collection in collections.all.subcollections limit: 5 %}
+          <nav>
+            <ul>
+              <li>
+                <a href="{{ collection.url }}">
+                  {{ collection.title }}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="cell-5">{% raw %}
+    <pre v-pre class="html">
+    <code>&lt;button type="button" class="bttn-fill" data-open-mobile-menu &gt;
+      Открыть панель слева
+    &lt;/button&gt;
+    &lt;div class="hide"&gt;
+      &lt;div class="mobile_menu"&gt;
+        {% for collection in collections.all.subcollections limit: 5 %}
+          &lt;nav&gt;
+            &lt;ul&gt;
+              &lt;li&gt;
+                &lt;a href="{{ collection.url }}"&gt;
+                  {{ collection.title }}
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        {% endfor %}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript"&gt;
+    $(document).on('click', '[data-open-mobile-menu]', function(event) {
+      event.preventDefault();
+      alertify.panel({
+        target: '.mobile_menu',
+        position: 'left'
+      });
+    });
+    &lt;/script&gt;</code></pre>
+
+ {% endraw %}
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Инпуты
+    </h2>
+    <p>
+      <b>
+        project\bundles\css\base\inputs.scss
+      </b>
+    </p>
+
+  </div>
+  <div class="cell-4">
+    <p>
+      <input class="inpt" type="text" value="text">
+    </p>
+    <p>
+      <input class="inpt" type="password" value="password">
+    </p>
+    <p>
+      <input class="inpt" type="date" value="2013-04-24">
+    </p>
+    <p>
+      <input class="inpt" type="number" value="42">
+    </p>
+    <p>
+      <input class="inpt" type="legend" value="legend">
+    </p>
+    <p>
+      <input class="inpt" type="textarea" value="textarea">
+    </p>
+    <p>
+      <input class="inpt" type="search" value="search">
+    </p>
+    <p>
+      <input class="inpt" type="email" value="mail@example.org">
+    </p>
+    <p>
+      <input class="inpt" type="range" value="42">
+    </p>
+    <p>
+      <input class="inpt" type="tel" value="+12 345 678 9">
+    </p>
+    <p>
+      <input class="inpt" type="url" value="http://example.org">
+    </p>
+    <p>
+      <input class="inpt" type="file">
+    </p>
+    <p>
+      <input class="inpt" type="hidden" value="hidden">
+    </p>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<code>&lt;input class="inpt" type="text" value="text"&gt;</code></pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Изображения
+    </h2>
+    <p>
+      <b>
+        \project\bundles\css\base\images.scss
+      </b>
+    </p>
+  </div>
+  <div class="cell-4">
+    <div class="row is-grid">
+      <div class="cell-4">
+        <div class="image-container is-square">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-square
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-rectangle">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-rectangle
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-rounded">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-rounded
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-simple">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-simple
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-wide">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-wide
+          </b>
+        </div>
+      </div>
+
+      <div class="cell-12">
+        <p>
+          Изображение с модификатором <i>is-cover</i>
+        </p>
+      </div>
+
+      <div class="cell-4">
+        <div class="image-container is-square is-cover">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-square
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-rectangle is-cover">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-rectangle
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-rounded is-cover">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-rounded
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-simple is-cover">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-simple
+          </b>
+        </div>
+      </div>
+      <div class="cell-4">
+        <div class="image-container is-wide is-cover">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?dpr=1&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=&bg=">
+        </div>
+        <div class="text-center">
+          <b>
+            is-wide
+          </b>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="cell-5">
+    <pre v-pre class="html">
+<code>&lt;div class="image-container is-square"&gt;
+  &lt;img src="image.jpg"&gt;
+&lt;/div&gt;
+&lt;div class="image-container is-square is-cover"&gt;
+  &lt;img src="image.jpg"&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
+
+<div class="row is-grid">
+  <div class="cell-3">
+    <h2>
+      Drop
+    </h2>
+  </div>
+  <div class="cell-4">
+    <div class="drop">
+      <div>
+        item 1
+      </div>
+      <div class="drop-target">
+        <div>
+          item 1.1
+        </div>
+        <div>
+          item 1.2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cell-5">
+<pre v-pre class="html">
+.drop
+  div
+    | item 1
+  .drop-target
+    div
+      | item 1.1
+    div
+      | item 1.2
+</pre>
+  </div>
+</div>
+<div class="row is-grid">
+  <div class="cell-6">
+    <div>
+      <h2>Табы</h2>
+
+      <p>
+        <a href="https://github.com/VladimirIvanin/dataTabs">
+          dataTabs
+        </a>
+      </p>
+
+      <div class="tabs js-tabs is-data-tabs-hover" data-tabs-container="">
+
+        <div class="tabs-head" data-tab-control="tabs">
+
+          <div class="tabs-item is-button-active" data-tab-anchor="description">
+            Описание
+          </div>
+
+
+
+          <div class="tabs-item is-button-close" data-tab-anchor="review">
+            Отзывы (7)
+          </div>
+
+        </div>
+
+
+
+        <div class="tabs-box" data-tab-box="tabs">
+
+          <div class="tabs-target is-tab-close" data-tab-target="review">
+            <div class="reviews-wrapper">
+              <div class="reviews-form">
+                <form class="review-form" method="post" action="/collection/all/product/just-another-story/reviews#review_form">
+
+
+
+
+
+                  <div id="review_form" class="form row row-padded flex-top js-review-wrapper">
+
+                    <div class="form-row  is-required cell-6  ">
+                      <label class="form-label">Имя</label>
+
+                      <input name="review[author]" value="" type="text" class="form-field text-field inpt">
+                    </div>
+
+                    <div class="form-row is-required cell-6  ">
+                      <label class="form-label">E-mail</label>
+
+                      <input name="review[email]" value="" type="text" class="form-field text-field inpt">
+                    </div>
+
+                    <div class="form-row is-required cell-12 ">
+                      <label class="form-label">Сообщение</label>
+
+                      <textarea name="review[content]" class="form-field text-field is-textarea inpt"></textarea>
+                    </div>
+
+
+
+                    <div class="form-row is-required cell-6  star-rating-row">
+                      <label class="form-label">Оценка</label>
+
+                      <div class="star-rating-wrapper">
+                        <div class="star-rating">
+
+
+                          <input name="review[rating]" id="star5-67841549" type="radio" class="star-radio" value="5">
+                          <label title="5" for="star5-67841549" class="star-label"></label>
+
+
+                          <input name="review[rating]" id="star4-67841549" type="radio" class="star-radio" value="4">
+                          <label title="4" for="star4-67841549" class="star-label"></label>
+
+
+                          <input name="review[rating]" id="star3-67841549" type="radio" class="star-radio" value="3">
+                          <label title="3" for="star3-67841549" class="star-label"></label>
+
+
+                          <input name="review[rating]" id="star2-67841549" type="radio" class="star-radio" value="2">
+                          <label title="2" for="star2-67841549" class="star-label"></label>
+
+
+                          <input name="review[rating]" id="star1-67841549" type="radio" class="star-radio" value="1">
+                          <label title="1" for="star1-67841549" class="star-label"></label>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-controls cell-12">
+                      <button type="submit" class="bttn-prim">Отправить</button>
+                    </div>
+
+                  </div><!-- /.review_form -->
+
+
+
+                </form></div>
+
+
+
+              </div>
+
+
+
+              <div class="reviews-items-wrap">
+
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:52</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:42</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:41</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:41</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:40</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> test</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 30.11.2016 09:40</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      test
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+                <div class="reviews-item">
+
+                  <div class="review-header">
+                    <div class="author"><i class="fa fa-user"></i> ПЕТЯ</div>
+                    <div class="date"><i class="fa fa-calendar"></i> 14.10.2016 12:18</div>
+                    <div class="star-rating-wrapper">
+                      <div class="star-rating">
+
+
+                        <span class="star-item active"></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                        <span class="star-item "></span>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-body">
+                    <p class="text">
+                      tertetetrert
+                    </p>
+                  </div>
+                  <div class="review-footer">
+                  </div>
+                </div><!-- /.reviews-item -->
+
+
+              </div><!-- /.reviews-list -->
+
+
+
+
+
+            </div>
+
+            <div class="tabs-target editor is-tab-active" data-tab-target="description" itemprop="description">
+              <p>Убежденность некоторых оппонентов позволяет оценить значение укрепления моральных ценностей. Лишь реплицированные с зарубежных источников, современные исследования лишь добавляют фракционных разногласий и обнародованы.</p>
+
+    <p>В своем стремлении улучшить пользовательский опыт мы упускаем, что действия представителей оппозиции формируют глобальную экономическую сеть и при этом - подвергнуты целой серии независимых исследований. Семантический разбор внешних противодействий прекрасно подходит для реализации стандартных подходов. Современные технологии достигли такого уровня, что высококачественный прототип будущего проекта требует от нас анализа позиций, занимаемых участниками в отношении поставленных задач. Принимая во внимание показатели успешности, социально-экономическое развитие обеспечивает актуальность системы обучения кадров, соответствующей насущным потребностям.</p>
+
+    <p>В целом, конечно, высокотехнологичная концепция общественного уклада обеспечивает широкому кругу (специалистов) участие в формировании вывода текущих активов. Также как высококачественный прототип будущего проекта представляет собой интересный эксперимент проверки форм воздействия. Повседневная практика показывает, что новая модель организационной деятельности предопределяет высокую востребованность укрепления моральных ценностей. Разнообразный и богатый опыт говорит нам, что постоянный количественный рост и сфера нашей активности требует от нас анализа распределения внутренних резервов и ресурсов. А еще базовые сценарии поведения пользователей, инициированные исключительно синтетически, ассоциативно распределены по отраслям. Значимость этих проблем настолько очевидна, что убежденность некоторых оппонентов позволяет оценить значение своевременного выполнения сверхзадачи.</p>
+
+    <p>Следует отметить, что понимание сути ресурсосберегающих технологий напрямую зависит от благоприятных перспектив. Задача организации, в особенности же внедрение современных методик позволяет выполнить важные задания по разработке распределения внутренних резервов и ресурсов. Сложно сказать, почему явные признаки победы институциализации могут быть подвергнуты целой серии независимых исследований. В рамках спецификации современных стандартов, активно развивающиеся страны третьего мира представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть представлены в исключительно положительном свете.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="cell-6">
+    <pre v-pre class="html">
+    <code>&lt;div class="js-tabs" data-tabs-container&gt;
+      &lt;div&gt;
+        &lt;button data-tab-anchor="1" type="button" data-tab-active&gt;
+          Первая вкладка
+        &lt;/button&gt;
+        &lt;button data-tab-anchor="2" type="button"&gt;
+          Вторая вкладка
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;div data-tab-target="1"&gt;
+          Содержимое первой вкладки
+        &lt;/div&gt;
+        &lt;div data-tab-target="2"&gt;
+          Содержимое второй вкладки
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script type="text/javascript"&gt;
+    $(document).ready(function() {
+      $('.js-tabs').dataTabs();
+    });
+    &lt;/script&gt;</code></pre>
+  </div>
+</div>
+
+<!-- style_guide -->
+</div>
+
+
+<div class="container">
+
+    <h1>Нативные элементы</h1>
+    <h2>Инпуты</h2>
+    <p> </p>
+    <select name="">
+      <option value="">111 </option>
+      <option value="">222 </option>
+      <option value="">333 </option>
+    </select>
+
+    <input type="button" value="button">
+    <br>
+    <p></p>
+    <input type="text" value="" placeholder="Мой плейсхолдер">
+
+    <br>
+    <p></p>
+    <input type="password" value="password">
+
+    <p></p>
+    <input type="date" value="2013-04-24">
+
+    <br>
+    <p></p>
+    <input type="number" value="42">
+
+    <br>
+    <p></p>
+    <input type="color" value="#BADA55">
+    <br>
+    <p></p>
+    <input type="legend" value="legend">
+
+    <br>
+    <p></p>
+    <input type="textarea" value="textarea">
+
+    <br>
+    <p></p>
+    <input type="search" value="search">
+
+    <br>
+    <p></p>
+    <input type="datetime" value="datetime">
+    <br>
+    <p></p>
+    <input type="datetime-local" value="2013-04-24T22:22:22">
+    <br>
+    <p></p>
+    <input type="month" value="2013-04">
+    <br>
+    <p></p>
+    <input type="email" value="mail@example.org">
+    <br>
+    <p></p>
+    <input type="range" value="42">
+
+    <br>
+    <p></p>
+    <input type="tel" value="+12 345 678 9">
+
+    <br>
+    <p></p>
+    <input type="week" value="2013-W17">
+    <br>
+    <p></p>
+    <input type="url" value="http://example.org">
+
+    <br>
+    <p></p>
+    <input type="checkbox" value="checkbox">
+    <label>
+      <input class="chkbx" type="checkbox" value="checkbox">
+      <div class="chkbx-button"> </div>
+    </label>
+    <label>
+      <input class="chkbx" type="checkbox" value="checkbox" checked="checked">
+      <div class="chkbx-button"> </div>
+    </label>
+    <br>
+    <p></p>
+    <input type="radio" value="radio">
+    <br>
+    <p></p>
+    <input type="fieldset" value="fieldset">
+    <br>
+    <p></p>
+    <input type="file">
+
+    <br>
+    <p></p>
+    <input type="hidden" value="hidden">
+    <br>
+    <p></p>
+    <input type="image">
+    <br>
+    <p></p>
+    <input type="time" value="22:22:22">
+
+    <br>
+
+    <h2>
+      Заголовки
+    </h2>
+
+    <h1>Header one</h1>
+    <h2>Header two</h2>
+    <h3>Header three</h3>
+    <h4>Header four</h4>
+    <h5>Header five</h5>
+    <h6>Header six</h6>
+    <h2>Blockquotes</h2>
+    <p>Single line blockquote:</p>
+    <blockquote>
+      <p>Stay hungry. Stay foolish.</p>
+    </blockquote>
+    <p>Multi line blockquote with a cite reference:</p>
+    <blockquote>
+      <p>People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I’m actually as proud of the things we haven’t done as the things I have done. Innovation is saying no to 1,000 things. <cite>Steve Jobs – Apple Worldwide Developers’ Conference, 1997</cite> </p>
+    </blockquote>
+    <h2>Tables</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>Employee</th>
+          <th class="views">Salary</th>
+          <th></th>
+        </tr>
+        <tr class="odd">
+          <td><a href="http://example.com/">Jane</a></td>
+          <td>$1</td>
+          <td>Because that’s all Steve Job’ needed for a salary.</td>
+        </tr>
+        <tr class="even">
+          <td><a href="http://example.com">John</a></td>
+          <td>$100K</td>
+          <td>For all the blogging he does.</td>
+        </tr>
+        <tr class="odd">
+          <td><a href="http://example.com/">Jane</a></td>
+          <td>$100M</td>
+          <td>Pictures are worth a thousand words, right? So Tom x 1,000.</td>
+        </tr>
+        <tr class="even">
+          <td><a href="http://example.com/">Jane</a></td>
+          <td>$100B</td>
+          <td>With hair like that?! Enough said…</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Definition Lists</h2>
+    <dl> <dt>Definition List Title</dt>
+      <dd>Definition list division.</dd> <dt>Startup</dt>
+      <dd>A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.</dd> <dt>#dowork</dt>
+      <dd>Coined by Rob Dyrdek and his personal body guard Christopher “Big Black” Boykins, “Do Work” works as a self motivator, to motivating your friends.</dd> <dt>Do It Live</dt>
+      <dd>I’ll let Bill O’Reilly will <a title="We'll Do It Live" href="https://www.youtube.com/watch?v=O_HyZ5aW76c">explain</a> this one.</dd>
+    </dl>
+    <h2>Unordered Lists (Nested)</h2>
+    <ul>
+      <li>List item one
+        <ul>
+          <li>List item one
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+              <li>List item four</li>
+            </ul>
+          </li>
+          <li>List item two</li>
+          <li>List item three</li>
+          <li>List item four</li>
+        </ul>
+      </li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ul>
+    <h2>Ordered List (Nested)</h2>
+    <ol>
+      <li>List item one
+        <ol>
+          <li>List item one
+            <ol>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+              <li>List item four</li>
+            </ol>
+          </li>
+          <li>List item two</li>
+          <li>List item three</li>
+          <li>List item four</li>
+        </ol>
+      </li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ol>
+    <h2>HTML Tags</h2>
+    <p>These supported tags come from the WordPress.com code <a title="Code" href="http://en.support.wordpress.com/code/">FAQ</a>.</p>
+    <p><strong>Address Tag</strong></p> <address>1 Infinite Loop<br>  Cupertino, CA 95014<br>  United States</address>
+    <p><strong>Anchor Tag (aka. Link)</strong></p>
+    <p>This is an example of a <a title="Apple" href="https://apple.com">link</a>.</p>
+    <p><strong>Abbreviation Tag</strong></p>
+    <p>The abbreviation <abbr title="Seriously">srsly</abbr> stands for “seriously”.</p>
+    <p><strong>Acronym Tag</strong></p>
+    <p>The acronym <acronym title="For The Win">ftw</acronym> stands for “for the win”.</p>
+    <p><strong>Big Tag</strong></p>
+    <p>These tests are a <big>big</big> deal, but this tag is no longer supported in HTML5. </p>
+    <p><strong>Cite Tag</strong></p>
+    <p>“Code is poetry.” – <cite>Automattic</cite> </p>
+    <p><strong>Code Tag</strong></p>
+    <p>You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend.</p>
+    <p><strong>Delete Tag</strong></p>
+    <p>This tag will let you <del>strikeout text</del>, but this tag is no longer supported in HTML5 (use the <code></code> <strike></strike> instead). </p>
+    <p><strong>Emphasize Tag</strong></p>
+    <p>The emphasize tag should <em>italicize</em> text.</p>
+    <p><strong>Insert Tag</strong></p>
+    <p>This tag should denote <ins>inserted</ins> text.</p>
+    <p><strong>Keyboard Tag</strong></p>
+    <p>This scarcely known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the <code></code> tag.</p>
+    <p><strong>Preformatted Tag</strong></p>
+    <p>This tag styles large blocks of code.</p> <pre>\n.post-title {
+      margin: 0 0 5px;
+      font-weight: bold;
+      font-size: 38px;
+      line-height: 1.2;
+    }  </pre>
+    <p><strong>Quote Tag</strong></p>
+    <p> <q>Developers, developers, developers…</q> –Steve Ballmer </p>
+    <p><strong>Strong Tag</strong></p>
+    <p>This tag shows <strong>bold<strong> text.</strong></strong>
+    </p>
+    <p><strong>Subscript Tag</strong></p>
+    <p>Getting our science styling on with H<sub>2</sub>O, which should push the “2″ down.</p>
+    <p><strong>Superscript Tag</strong></p>
+    <p>Still sticking with science and Isaac Newton’s E = MC<sup>2</sup>, which should lift the 2 up.</p>
+    <p><strong>Teletype Tag</strong></p>
+    <p>This rarely used tag emulates <tt>teletype text</tt>, which is usually styled like the <code></code> tag. </p>
+    <p><strong>Variable Tag</strong></p>
+    <p>This allows you to denote <var>variables</var>. </p>
+
+</div>
+
+<div id="style"></div>
+<br>
+<br>

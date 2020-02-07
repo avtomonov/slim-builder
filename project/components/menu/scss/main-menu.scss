@@ -1,0 +1,30 @@
+.main-menu-item {
+  display: inline-block;
+  position: static;
+  vertical-align: middle;
+}
+
+.main-menu.level-2 {
+  position: absolute;
+  top: 100%; // указать высоту меню в пикселях
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
+}
+
+.main-menu.level-1 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.main-menu-marker {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent;
+  background-image: url('arr-down-prime.svg');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: 50%;
+}

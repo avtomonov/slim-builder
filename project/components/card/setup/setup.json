@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "stiker": {
+      "title": "Стикер",
+      "characteristics": { "new": "Новинка",
+        "hit": "Хит" }
+      }
+    }
+  }

@@ -1,0 +1,62 @@
+<form class="card cards-col" action="{{ cart_url }}" method="post" data-product-id="<%= product.id %>">
+  <div class="card-info">
+
+    <div class="card-image">
+      <%= getStiker('stiker', product.characteristics) %>
+      <%= getDiscount(product.variants[0].price, product.variants[0].old_price) %>
+
+      <a href="<%= product.url %>" class="image-inner">
+        <div class="image-wraps">
+          <span class="image-container is-square">
+            <span class="image-flex-center">
+              <img src="<%= product.first_image.large_url %>">
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="card-title">
+      <a href="<%= product.url %>">
+        <%= product.title %>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="card-prices">
+    <div class="row flex-center flex-bottom">
+      <div class="card-price">
+        <%= Shop.money.format(product.variants[0].price) %>
+      </div>
+      <% if (product.variants[0].old_price){ %>
+        <div class="card-old_price">
+          <%= Shop.money.format(product.variants[0].old_price) %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+
+  <div class="card-action show-flex flex-bottom">
+    <div class="hide">
+      <input type="hidden" name="variant_id" value="<%= product.variants[0].id %>" >
+      <div data-quantity class="hide">
+        <input type="text" name="quantity" value="1" />
+        <span data-quantity-change="-1">-</span>
+        <span data-quantity-change="1">+</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card-action-inner">
+    <button class="bttn-favorite is-added" data-favorites-trigger="<%= product.id %>"></button>
+    <% if (product.variants.size > 1){ %>
+      <a href="<%= product.url %>" class="bttn-prim">Подробнее</a>
+    <% }else{ %>
+      <button data-item-add class="bttn-prim" type="button">В корзину</button>
+    <% } %>
+  </div>
+
+</form>

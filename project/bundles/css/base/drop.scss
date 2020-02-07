@@ -1,0 +1,9 @@
+.drop {
+  position: relative;
+}
+.drop-target {
+  @include dropTarget;
+  .drop:hover & {
+    @include dropTargetHover;
+  }
+}

@@ -1,0 +1,228 @@
+@mixin bttn-uppercase {
+  padding: 10px 10px 10px 10px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+@mixin bttn-none-transform {
+  padding: 9px 10px 10px 10px;
+  line-height: calc(#{$font-size-primary} + 1px);
+  text-transform: none;
+}
+@mixin bttn {
+  font-size: $font-size-primary;
+  font-family: $font-family-primary;
+  font-weight: 300;
+  border: 2px solid transparent;
+  border-radius: 0;
+  background-image: none;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s, color 0.2s;
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="file"],
+button {
+  @include bttn-none-transform;
+  color: $color-text-primary;
+  border: 2px solid transparent;
+  cursor: pointer;
+  &:focus {
+    outline-color: lighten($color-link-primary, 50%);
+  }
+}
+
+.bttn {
+  @include bttn;
+  @include bttn-none-transform;
+}
+
+.wrapper.fc .button,
+button#create_order {
+  &:active {
+    top: 0;
+  }
+}
+
+.bttn-prim,
+.m-modal-button--checkout,
+.wrapper.fc .button,
+button#create_order,
+.co-button,
+.picker-button,
+.wrapper .back_to_shop {
+  @include bttn;
+  @include bttn-uppercase;
+  background-color: $color-link-primary;
+  color: #fff;
+  border: 2px solid $color-link-primary;
+  &:hover{
+    color: #fff;
+    background-color: $color-link-primary-hover;
+    border: 2px solid $color-link-primary-hover;
+  }
+  &:focus {
+    color: #fff;
+    background-color: $color-link-primary-hover;
+    border: 2px solid $color-link-primary-hover;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.bttn-second,
+[href="/client_account/contacts/new"].co-form-button {
+  @include bttn;
+  @include bttn-uppercase;
+  background-color: $color-link-secondary;
+  color: #fff;
+  border: 2px solid $color-link-secondary;
+  &:hover{
+    color: #fff;
+    background-color: $color-link-secondary-hover;
+    border-color: $color-link-secondary-hover;
+  }
+}
+.bttn-transparent {
+  @include bttn;
+  @include bttn-uppercase;
+  background-color: transparent;
+  border: 2px solid $color-link-primary;
+  color: $color-link-primary;
+  &:hover {
+    color: #fff;
+    background-color: $color-link-primary;
+  }
+}
+.bttn-transparent-second {
+  @include bttn;
+  @include bttn-uppercase;
+  background-color: transparent;
+  border: 2px solid $color-link-secondary;
+  color: $color-link-secondary;
+  &:hover {
+    color: #fff;
+    background-color: $color-link-secondary;
+  }
+}
+
+.bttn-fill {
+  @include bttn;
+  @include bttn-uppercase;
+  color: #fff;
+  background-color: $color-link-primary;
+  border: 2px solid $color-link-primary;
+  &:hover {
+    background-color: transparent;
+    color: $color-link-primary;
+  }
+}
+
+.bttn-fill-second {
+  @include bttn;
+  @include bttn-uppercase;
+  color: #fff;
+  background-color: $color-link-secondary;
+  border: 2px solid $color-link-secondary;
+  &:hover {
+    background-color: transparent;
+    color: $color-link-secondary;
+  }
+}
+
+.bttn-count,
+a.bttn-count {
+  @include bttn;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  min-height: initial;
+  color: #d1d1d1;
+  border: 1px solid $color-border-primary;
+  font-family: $font-family-primary;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  user-select: none;
+  padding: 0px;
+  &:hover {
+    border-color: $color-link-primary;
+    background-color: $color-link-primary;
+    color: #fff;
+  }
+
+}
+
+.bttn-favorite {
+  @include bttn;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 23px;
+  height: 20px;
+  transition: transform 200ms;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 492.719 492.719' style='enable-background:new 0 0 492.719 492.719;' xml:space='preserve' width='23px' height='23px'%3E%3Cg%3E%3Cg id='Icons_18_'%3E%3Cpath d='M492.719,166.008c0-73.486-59.573-133.056-133.059-133.056c-47.985,0-89.891,25.484-113.302,63.569 c-23.408-38.085-65.332-63.569-113.316-63.569C59.556,32.952,0,92.522,0,166.008c0,40.009,17.729,75.803,45.671,100.178 l188.545,188.553c3.22,3.22,7.587,5.029,12.142,5.029c4.555,0,8.922-1.809,12.142-5.029l188.545-188.553 C474.988,241.811,492.719,206.017,492.719,166.008z' fill='%23d1d1d0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  &:hover {
+    transform: scale(1.1);
+  }
+  &.is-added {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 492.719 492.719' style='enable-background:new 0 0 492.719 492.719;' xml:space='preserve' width='23px' height='23px'%3E%3Cg%3E%3Cg id='Icons_18_'%3E%3Cpath d='M492.719,166.008c0-73.486-59.573-133.056-133.059-133.056c-47.985,0-89.891,25.484-113.302,63.569 c-23.408-38.085-65.332-63.569-113.316-63.569C59.556,32.952,0,92.522,0,166.008c0,40.009,17.729,75.803,45.671,100.178 l188.545,188.553c3.22,3.22,7.587,5.029,12.142,5.029c4.555,0,8.922-1.809,12.142-5.029l188.545-188.553 C474.988,241.811,492.719,206.017,492.719,166.008z' fill='%23f65050'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  }
+}
+
+.bttn-compares {
+  @include bttn;
+  border: none;
+  background: transparent;
+  &.is-icon {
+    color: $color-link-primary;
+  }
+  &.is-icon.is-added {
+    color: $color-link-secondary;
+  }
+
+  &.is-bg {
+    width: 38px;
+    height: 38px;
+    background-position: 50%;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='95.884px' height='95.884px' viewBox='0 0 95.884 95.884' style='enable-background:new 0 0 95.884 95.884;' xml:space='preserve' fill='%23000000'%3E%3Cg%3E%3Cg%3E%3Cpath d='M42.893,33.654h10.098c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H42.893c-1.104,0-2,0.896-2,2v29.654 C40.893,32.758,41.789,33.654,42.893,33.654z'/%3E%3Cpath d='M52.991,62.23H42.893c-1.104,0-2,0.896-2,2v29.653c0,1.104,0.896,2,2,2h10.098c1.104,0,2-0.896,2-2V64.23 C54.991,63.126,54.095,62.23,52.991,62.23z'/%3E%3Cpath d='M57.373,39.37H38.512c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V41.37 C59.373,40.265,58.478,39.37,57.373,39.37z'/%3E%3Cpath d='M8.601,13.079H18.7c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H8.601c-1.104,0-2,0.896-2,2v9.079 C6.601,12.183,7.497,13.079,8.601,13.079z'/%3E%3Cpath d='M18.7,41.655H8.601c-1.104,0-2,0.896-2,2v50.229c0,1.104,0.896,2,2,2H18.7c1.104,0,2-0.896,2-2V43.655 C20.7,42.55,19.804,41.655,18.7,41.655z'/%3E%3Cpath d='M23.081,18.795H4.22c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V20.795 C25.081,19.69,24.185,18.795,23.081,18.795z'/%3E%3Cpath d='M77.185,23.366h10.098c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H77.185c-1.104,0-2,0.896-2,2v19.366 C75.185,22.47,76.08,23.366,77.185,23.366z'/%3E%3Cpath d='M87.282,51.943H77.185c-1.104,0-2,0.896-2,2v39.94c0,1.104,0.896,2,2,2h10.098c1.104,0,2-0.896,2-2v-39.94 C89.282,52.838,88.387,51.943,87.282,51.943z'/%3E%3Cpath d='M91.664,29.082h-18.86c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V31.082 C93.664,29.977,92.769,29.082,91.664,29.082z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  }
+
+  &.is-bg.is-added {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='95.884px' height='95.884px' viewBox='0 0 95.884 95.884' style='enable-background:new 0 0 95.884 95.884;' xml:space='preserve' fill='%23f65050'%3E%3Cg%3E%3Cg%3E%3Cpath d='M42.893,33.654h10.098c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H42.893c-1.104,0-2,0.896-2,2v29.654 C40.893,32.758,41.789,33.654,42.893,33.654z'/%3E%3Cpath d='M52.991,62.23H42.893c-1.104,0-2,0.896-2,2v29.653c0,1.104,0.896,2,2,2h10.098c1.104,0,2-0.896,2-2V64.23 C54.991,63.126,54.095,62.23,52.991,62.23z'/%3E%3Cpath d='M57.373,39.37H38.512c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V41.37 C59.373,40.265,58.478,39.37,57.373,39.37z'/%3E%3Cpath d='M8.601,13.079H18.7c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H8.601c-1.104,0-2,0.896-2,2v9.079 C6.601,12.183,7.497,13.079,8.601,13.079z'/%3E%3Cpath d='M18.7,41.655H8.601c-1.104,0-2,0.896-2,2v50.229c0,1.104,0.896,2,2,2H18.7c1.104,0,2-0.896,2-2V43.655 C20.7,42.55,19.804,41.655,18.7,41.655z'/%3E%3Cpath d='M23.081,18.795H4.22c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V20.795 C25.081,19.69,24.185,18.795,23.081,18.795z'/%3E%3Cpath d='M77.185,23.366h10.098c1.104,0,2-0.896,2-2V2c0-1.104-0.896-2-2-2H77.185c-1.104,0-2,0.896-2,2v19.366 C75.185,22.47,76.08,23.366,77.185,23.366z'/%3E%3Cpath d='M87.282,51.943H77.185c-1.104,0-2,0.896-2,2v39.94c0,1.104,0.896,2,2,2h10.098c1.104,0,2-0.896,2-2v-39.94 C89.282,52.838,88.387,51.943,87.282,51.943z'/%3E%3Cpath d='M91.664,29.082h-18.86c-1.104,0-2,0.896-2,2v13.146c0,1.104,0.896,2,2,2h18.86c1.104,0,2-0.896,2-2V31.082 C93.664,29.977,92.769,29.082,91.664,29.082z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  }
+
+
+  &[data-compares-added].is-added:before {
+    content: attr(data-compares-added);
+  }
+  &[data-compares-not-added].not-added:before {
+    content: attr(data-compares-not-added);
+  }
+}
+
+.bttn-burger img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.bttn-burger > * {
+  display: inline-block;
+  vertical-align: middle;
+}

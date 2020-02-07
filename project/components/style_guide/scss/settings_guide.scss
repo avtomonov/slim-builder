@@ -1,0 +1,149 @@
+.settings_guide-font-primary::before {
+  content: '$font-family-primary: ';
+  font-family: $font-family-primary;
+}
+.settings_guide-font-primary::after {
+  content: '#{$font-family-primary}';
+  font-family: $font-family-primary;
+}
+.settings_guide-font-second::before {
+  font-family: $font-family-second;
+  content: '$font-family-second: ';
+}
+.settings_guide-font-second::after {
+  font-family: $font-family-second;
+  content: '#{$font-family-second}';
+}
+
+
+.settings_guide-font-size::before {
+  font-size: $font-size-primary;
+  content: '$font-size-primary: ';
+}
+.settings_guide-font-size::after {
+  font-size: $font-size-primary;
+  content: '#{$font-size-primary}';
+}
+
+@mixin colorAfter {
+  content: '';
+  display: inline-block;
+  vertical-align: bottom;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.settings_guide-color-background-primary {
+  &:before {
+    content: '$color-background-primary: ';
+  }
+  &:after {
+    background-color: $color-background-primary;
+    @include colorAfter;
+  }
+}
+.settings_guide-color-text-primary {
+  &:before {
+    content: '$color-text-primary: ';
+  }
+  &:after {
+    background-color: $color-text-primary;
+    @include colorAfter;
+  }
+}
+.settings_guide-color-text-gray {
+  &:before {
+    content: '$color-text-gray: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-text-gray;
+  }
+}
+.settings_guide-color-link-primary {
+  &:before {
+    content: '$color-link-primary: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-link-primary;
+  }
+}
+
+.settings_guide-color-link-secondary {
+  &:before {
+    content: '$color-link-secondary: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-link-secondary;
+  }
+}
+
+.settings_guide-color-info {
+  &:before {
+    content: '$color-info: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-info;
+  }
+}
+.settings_guide-color-success {
+  &:before {
+    content: '$color-success: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-success;
+  }
+}
+
+.settings_guide-color-error {
+  &:before {
+    content: '$color-error: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-error;
+  }
+}
+
+.settings_guide-color-warning {
+  &:before {
+    content: '$color-warning: ';
+  }
+  &:after {
+    @include colorAfter;
+    background-color: $color-warning;
+  }
+}
+
+// $color-link-secondary: #0B705A;
+// $color-info: #E2E5EA;
+// $color-success: $color-link-primary;
+// $color-error: #f65050;
+// $color-warning: #F2930C;
+
+// $font-family-primary: sans-serif;
+// $font-family-second: sans-serif;
+// $font-size-primary: settings(font_size_primary);
+//
+// // Colors
+// $color-background-primary: #fff;
+// $color-text-primary: settings(color_text_secondary);
+// $color-text-gray: #555555;
+// $color-link-primary: #1565c0;
+// $color-link-primary-hover: #2196f3;
+// $color-border-primary: #cccccc;
+//
+// // Дополнительные цвета
+// $color-background-secondary: #ccc;
+// $color-text-secondary: #000000;
+// $color-text-gray-second: #444444;
+// $color-link-secondary: $color-link-primary-hover;
+// $color-link-secondary-hover: $color-link-primary;
+// $color-border-secondary: #999999;
+// $color-border-light: #e5e5e5;

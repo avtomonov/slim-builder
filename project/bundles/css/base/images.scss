@@ -1,0 +1,90 @@
+// image
+img {
+  max-height: 100%;
+  height: auto;
+}
+.image-container {
+  display: inline-block;
+  height: 0;
+  width: 100%;
+  position: relative;
+  vertical-align: top;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  &.is-square {
+    padding-top: 100%;
+  }
+
+  &.is-rectangle {
+    padding-top: 150%;
+  }
+
+  &.is-rounded {
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &.is-simple {
+    padding-top: 75%;
+  }
+
+  &.is-wide {
+    padding-top: 56.25%;
+  }
+
+  &.is-cover {
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      max-width: none;
+      max-height: none;
+
+      @supports(object-fit: cover) {
+        object-fit: cover;
+        object-position: 0 0;
+        width: 100%;
+      }
+    }
+
+    &.with-trick {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      img {
+        display: none;
+      }
+    }
+  }
+}
+.image-flex-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  flex-direction: column;
+  img {
+    position: static;
+    top: initial;
+    left: initial;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}

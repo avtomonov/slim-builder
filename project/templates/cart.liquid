@@ -1,0 +1,27 @@
+<div class="container">
+  {% include "breadcrumb" %}
+  <div class="page-title cart-title">
+    Корзина
+  </div>
+  <div class="cart-top" data-cartman-items-text>
+  </div>
+</div>
+
+<div class="cart-form">
+  <div class="container">
+    <div class="cart-empty notice notice-info {% unless cart.items.size == 0 %}hide{% endunless %}">
+      Корзина пуста
+    </div>
+  </div>
+
+  {% if cart.items.size > 0 %}
+  <div class="container">
+    {% include "cart" %}
+  </div>
+
+  <div class="container">
+    {% include "cart_similar" %}
+  </div>
+  {% endif %}
+
+</div>

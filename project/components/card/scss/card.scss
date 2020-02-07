@@ -1,0 +1,14 @@
+.card {
+  margin-bottom: $gutter-width-secondary * 2;
+  position: relative;
+}
+.card-info {
+  position: relative;
+}
+.card-old_price {
+  text-decoration: line-through;
+  color: $color-text-gray;
+}
+.card-title {
+  margin-bottom: $font-size-primary;
+}
